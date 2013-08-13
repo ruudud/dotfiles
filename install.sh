@@ -31,7 +31,7 @@ read install_answer
 
 if [ "$install_answer" == "y" ]
 then
-    sudo apt-get install ttf-inconsolata xclip vim python-pip python-setuptools libssl-dev build-essential
+    sudo apt-get install curl ttf-inconsolata xclip vim python-pip python-setuptools libssl-dev build-essential
     sudo pip install --upgrade pip
     sudo pip install virtualenv virtualenvwrapper
 
