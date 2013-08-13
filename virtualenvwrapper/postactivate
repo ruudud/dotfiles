@@ -1,0 +1,10 @@
+#!/bin/bash
+# This hook is run after every virtualenv is activated.
+PS1="\[\033[01;33m\][$(basename $VIRTUAL_ENV)]\[\033[00m\] $_OLD_VIRTUAL_PS1"
+_DEV_DIR="$HOME/dev/$(basename $VIRTUAL_ENV)"
+if [ ! -d "$_DEV_DIR" ]; then
+    mkdir "$_DEV_DIR"
+fi
+add2virtualenv "$_DEV_DIR"
+cd "$_DEV_DIR"
+

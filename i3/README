@@ -1,0 +1,35 @@
+# Required packages:
+# sudo aptitude install feh i3
+#
+# Disable nautilus desktop window
+gsettings set org.gnome.desktop.background show-desktop-icons false
+
+#
+# Laptop specific stuff
+#
+# /etc/acpi/lid.sh 
+-------8<--------8<-------8<----------------------------------------------------
+# Lock and suspend computer when closing lid
+su $user -c "i3lock -c 141414"
+dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+-------8<--------8<-------8<----------------------------------------------------
+
+# /etc/pm/power.d/performance
+-------8<--------8<-------8<----------------------------------------------------
+#!/bin/sh
+
+if [ "$1" = "true" ]
+then 
+    # Battery
+    # Dim screen
+    echo 13 > /sys/class/backlight/acpi_video0/brightness
+    # 300s before standby and suspend, 60s monitor off
+    xset dpms 100 100 100
+else
+    # AC
+    # Full brightness
+    echo 15 > /sys/class/backlight/acpi_video0/brightness
+    # 300s before standby suspend and monitor off
+    xset dpms 300 300 300
+fi
+-------8<--------8<-------8<----------------------------------------------------

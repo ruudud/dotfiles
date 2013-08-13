@@ -1,0 +1,26 @@
+[user]
+  name = Pål Ruud
+  email = ruudud@gmail.com
+[color]
+  ui = auto
+[core]
+  editor = vim
+  autocrlf = input
+  excludesfile = ~/.gitignore
+  whitespace = tab-in-indent,blank-at-eof
+[alias]
+  unstage = reset HEAD --
+  s = status
+  co = checkout
+  br = branch
+  t = describe --abbrev=0
+  lg = log --graph --pretty=oneline --abbrev-commit
+  w = whatchanged --pretty=short --abbrev-commit
+  gd = log --decorate --cherry-mark --oneline --graph --boundary #$A"..."$B
+  diffs = diff --staged
+  rank = shortlog -sn --no-merges
+  praise = blame
+[merge]
+  tool = opendiff
+[filter "tabspace"]
+  clean = expand -t2
