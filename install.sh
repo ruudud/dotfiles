@@ -7,13 +7,13 @@ read symlink_answer
 
 if [ "$symlink_answer" == "y" ]
 then
-    for fl in vim vimrc screenrc tmux.conf bashrc gitconfig i3status.conf i3
+    for fl in vim vimrc screenrc tmux.conf bashrc gitconfig i3status.conf "i3/"
     do
-      ln -sfn $basedir/$fl ~/.$fl
-      echo -e "~/.$fl \t→\t $basedir/$fl"
+      ln -sfn $basedir/$fl ${HOME}/.$fl
+      echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
     done
 
-    venv_dir='~/dev/.virtualenvs'
+    venv_dir="${HOME}/dev/.virtualenvs"
     mkdir -p $venv_dir
     ln -sfn $basedir/virtualenvwrapper/postactivate $venv_dir/postactivate
 fi
@@ -36,5 +36,5 @@ then
     sudo pip install virtualenv virtualenvwrapper
 
     mkdir -p ~/.nvm
-    curl -L https://github.com/creationix/nvm/archive/master.tar.gz | tar -zx -C ~/.nvm --strip-components=1
+    curl -L https://github.com/creationix/nvm/archive/master.tar.gz | tar -zx -C ${HOME}/.nvm --strip-components=1
 fi
