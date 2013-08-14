@@ -24,7 +24,7 @@ bindsym Print exec ~/dotfiles/bin/screenshot.sh
 # Switch layout: left alt+left shift, caps as additional ctrl, alt as compose
 exec --no-startup-id setxkbmap us,no '' compose:ralt ctrl:nocaps grp:lalt_lshift_toggle&
 # Set background image. Requires `feh`
-exec --no-startup-id feh --bg-fill ~/Pictures/hangmoonwp.png
+exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
