@@ -17,9 +17,12 @@
   lg = log --graph --pretty=oneline --abbrev-commit
   w = whatchanged --pretty=short --abbrev-commit
   gd = log --decorate --cherry-mark --oneline --graph --boundary #$A"..."$B
+  review = difftool -y -t vimdiff origin/develop..#$A
   diffs = diff --staged
   rank = shortlog -sn --no-merges
   praise = blame
+[difftool "vimdiff"]
+  cmd = "vimdiff -c 'windo set wrap'"
 [merge]
   tool = opendiff
 [filter "tabspace"]

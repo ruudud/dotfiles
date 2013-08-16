@@ -127,8 +127,11 @@ cmap w!! w !sudo tee %
 "
 " No text wrap for urls.py
 au BufNewFile,BufRead urls.py      setlocal nowrap
+" Wrap in diff mode
+au FilterWritePre * if &diff | set wrap | endif
 
 " Set some filetypes
+au BufNewFile,BufRead *.pp         setlocal filetype=ruby
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
 au BufNewFile,BufRead *.groovy     setlocal filetype=groovy
 au BufNewFile,BufRead *.md         setlocal filetype=markdown
@@ -140,9 +143,6 @@ au BufNewFile,BufRead models.py    setlocal filetype=python.django
 au BufNewFile,BufRead views.py     setlocal filetype=python.django
 au BufNewFile,BufRead settings.py  setlocal filetype=python.django
 au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-
-nnoremap _wiki  :set ft=confluencewiki<CR>
-nnoremap _pd    :set ft=python.django<CR>
 
 " Lint (based on filetype)
 nnoremap <leader>l :Lint<cr>

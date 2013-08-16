@@ -11,7 +11,7 @@ fi
 export HISTTIMEFORMAT="%F %T "
 export PS1="\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;31m\][\u@\h] \[\e[0;0m\]\w\n\[\e[0;33;49m\]✈ \[\e[0;0m\]"
 export EDITOR=vim
-export PATH=/usr/local/bin:/usr/local/sbin:~/dotfiles/bin/:$PATH
+export PATH="$HOME/dotfiles/bin/:$PATH"
 
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
 export WORKON_HOME=$HOME/dev/.virtualenvs
