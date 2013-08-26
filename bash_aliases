@@ -12,3 +12,5 @@ alias l='ls -CF'
 
 # Current Google Chrome is acting up.
 alias chrome-fixed='google-chrome --allow-outdated-plugins --audio-buffer-size=2048 &'
+
+alias c='cd ~/get/340-Utvikling/'
