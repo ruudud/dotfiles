@@ -17,8 +17,10 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
 export WORKON_HOME=$HOME/dev/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
-[[ -s /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
+[[ -s /usr/local/bin/virtualenvwrapper_lazy.sh ]] && . /usr/local/bin/virtualenvwrapper_lazy.sh
 
 [[ -s /home/ruud/.nvm/nvm.sh ]] && . /home/ruud/.nvm/nvm.sh
+
+eval "$(grunt --completion=bash)"
 
 . ~/dotfiles/bash_aliases
