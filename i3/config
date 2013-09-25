@@ -15,6 +15,11 @@ bindsym Mod1+Ctrl+l exec i3lock -c 141414
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym $mod+F3 exec amixer -q set Master 2dB+ unmute
+bindsym $mod+F2 exec amixer -q set Master 2dB- unmute
+bindsym $mod+F1 exec amixer -D pulse -q set Master toggle
+
+
 
 bindsym $mod+Shift+a [class="Gnome-terminal" title="VIM"] focus
 
