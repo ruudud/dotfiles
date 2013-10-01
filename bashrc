@@ -19,7 +19,7 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 [[ -s /usr/local/bin/virtualenvwrapper_lazy.sh ]] && . /usr/local/bin/virtualenvwrapper_lazy.sh
 
-[[ -s /home/ruud/.nvm/nvm.sh ]] && . /home/ruud/.nvm/nvm.sh
+[[ -s "/home/$USER/.nvm/nvm.sh" ]] && . "/home/$USER/.nvm/nvm.sh"
 
 eval "$(grunt --completion=bash)"
 

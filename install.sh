@@ -7,7 +7,8 @@ read symlink_answer
 
 if [ "$symlink_answer" == "y" ]
 then
-    for fl in vim vimrc screenrc tmux.conf bashrc gitconfig i3status.conf "i3/"
+    rm -rf "${HOME}/i3"
+    for fl in vim vimrc screenrc tmux.conf bashrc gitconfig i3status.conf i3
     do
       ln -sfn $basedir/$fl ${HOME}/.$fl
       echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
