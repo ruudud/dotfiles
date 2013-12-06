@@ -148,7 +148,7 @@ au BufNewFile,BufRead forms.py     setlocal filetype=python.django
 nnoremap <leader>l :Lint<cr>
 
 " Replace next occurrences of work
-nnoremap <leader>s :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/hvb
+nnoremap <leader>s :%s/<c-r><c-w>/<c-r><c-w>/gcI<c-f>$F/hvb
 
 " Git blame through fugitive.vim
 nnoremap <leader>b :Gblame<cr>
@@ -182,7 +182,7 @@ au FileType javascript command! Lint :call s:JsLint(exists('s:jshintrc_path') ? 
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.tmp)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp)$'
 
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
