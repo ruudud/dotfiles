@@ -7,6 +7,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " Enabled file type detection
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 highlight clear
 " Add hilight before colorscheme
@@ -19,6 +20,7 @@ colorscheme solarized
 " Now we set some defaults for the editor
 set nobackup                    " Backup is for puppies
 set nowritebackup
+set cryptmethod=blowfish        " Zip is too easy to crack
 set noswapfile
 set encoding=utf-8              " wtf-8
 set autoindent                  " always set autoindenting on
@@ -182,7 +184,7 @@ au FileType javascript command! Lint :call s:JsLint(exists('s:jshintrc_path') ? 
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
 
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
