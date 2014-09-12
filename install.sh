@@ -7,12 +7,13 @@ read symlink_answer
 
 if [ "$symlink_answer" == "y" ]
 then
-    rm -rf "${HOME}/i3"
+    rm -rf "${HOME}/.i3"
     for fl in vim vimrc screenrc tmux.conf bashrc gitconfig i3status.conf i3
     do
       ln -sfn $basedir/$fl ${HOME}/.$fl
       echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
     done
+
 
     venv_dir="${HOME}/dev/.virtualenvs"
     mkdir -p $venv_dir
@@ -32,7 +33,7 @@ read install_answer
 
 if [ "$install_answer" == "y" ]
 then
-    sudo apt-get install curl ttf-inconsolata xclip vim python-pip python-setuptools libssl-dev build-essential
+    sudo apt-get install curl fonts-inconsolata xclip vim python-pip python-setuptools libssl-dev build-essential
     sudo pip install --upgrade pip
     sudo pip install virtualenv virtualenvwrapper
 

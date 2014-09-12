@@ -21,6 +21,4 @@ export PIP_RESPECT_VIRTUALENV=true
 
 [[ -s "/home/$USER/.nvm/nvm.sh" ]] && . "/home/$USER/.nvm/nvm.sh"
 
-eval "$(grunt --completion=bash)"
-
 . ~/dotfiles/bash_aliases
