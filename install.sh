@@ -14,6 +14,8 @@ then
       echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
     done
 
+    # Prevent nautilus from opening desktop
+    gsettings set org.gnome.desktop.background show-desktop-icons false
 
     venv_dir="${HOME}/dev/.virtualenvs"
     mkdir -p $venv_dir
