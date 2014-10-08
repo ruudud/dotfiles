@@ -13,9 +13,9 @@ highlight clear
 " Add hilight before colorscheme
 au ColorScheme * highlight ExtraWhitespace ctermbg=red
 
+let base16colorspace=256
 set background=dark
-let g:solarized_termcolors=16
-colorscheme solarized
+colorscheme base16-solarized
 
 " Now we set some defaults for the editor
 set nobackup                    " Backup is for puppies
@@ -133,6 +133,7 @@ au BufNewFile,BufRead urls.py      setlocal nowrap
 au FilterWritePre * if &diff | set wrap | endif
 
 " Set some filetypes
+au BufNewFile,BufRead *.less       setlocal filetype=css
 au BufNewFile,BufRead *.pp         setlocal filetype=ruby
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
 au BufNewFile,BufRead *.groovy     setlocal filetype=groovy

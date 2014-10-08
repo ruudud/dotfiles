@@ -27,3 +27,5 @@
   tool = opendiff
 [filter "tabspace"]
   clean = expand -t2
+[push]
+  default = simple
