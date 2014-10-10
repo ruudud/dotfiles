@@ -29,3 +29,5 @@
   clean = expand -t2
 [push]
   default = simple
+[branch]
+  autosetuprebase = always
