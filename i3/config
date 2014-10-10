@@ -27,7 +27,8 @@ bindsym Print exec ~/dotfiles/bin/screenshot.sh
 
 # Autostart
 # Switch layout: left alt+left shift, caps as additional ctrl, alt as compose
-exec --no-startup-id setxkbmap us,no '' compose:ralt ctrl:nocaps grp:lalt_lshift_toggle&
+exec --no-startup-id /usr/bin/setxkbmap us,no '' compose:ralt ctrl:nocaps grp:menu_toggle
+exec --no-startup-id /usr/bin/xrandr --output DVI-I-1 --right-of HDMI1
 # Set background image. Requires `feh`
 exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
 

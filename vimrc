@@ -73,9 +73,6 @@ au BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" Remove trailing whitespace on save
-au BufWritePre *.py :%s/\s\+$//e
-
 " Sane regexp (very magical)
 nnoremap / /\v
 vnoremap / /\v
@@ -117,7 +114,7 @@ nnoremap <F7> :+1r !xclip -o -sel clip<CR>
 
 " Open current file in OS default
 inoremap <F10> <ESC>:!xdg-open %<CR>
-inoremap <F10> :!xdg-open %<CR>
+nnoremap <F10> :!xdg-open %<CR>
 
 " Command to remove trailing whitespaces
 command Tws %s/\s\+$//
@@ -126,34 +123,32 @@ command Tws %s/\s\+$//
 cmap w!! w !sudo tee %
 
 " Language specific settings
-"
+" Remove trailing whitespace on save for py files
+au BufWritePre *.py :%s/\s\+$//e
 " No text wrap for urls.py
 au BufNewFile,BufRead urls.py      setlocal nowrap
 " Wrap in diff mode
 au FilterWritePre * if &diff | set wrap | endif
 
 " Set some filetypes
-au BufNewFile,BufRead *.less       setlocal filetype=css
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
 au BufNewFile,BufRead *.groovy     setlocal filetype=groovy
 au BufNewFile,BufRead *.md         setlocal filetype=markdown
-au BufNewFile,BufRead *.twig       setlocal filetype=htmldjango
-au BufNewFile,BufRead *.html       setlocal filetype=htmldjango
-au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-au BufNewFile,BufRead models.py    setlocal filetype=python.django
-au BufNewFile,BufRead views.py     setlocal filetype=python.django
-au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-au BufNewFile,BufRead forms.py     setlocal filetype=python.django
 
 " Lint (based on filetype)
 nnoremap <leader>l :Lint<cr>
 
-" Replace next occurrences of work
+" Replace next occurrences of word
 nnoremap <leader>s :%s/<c-r><c-w>/<c-r><c-w>/gcI<c-f>$F/hvb
 
 " Git blame through fugitive.vim
 nnoremap <leader>b :Gblame<cr>
+
+" Quickfix shortcuts
+nnoremap <leader>p :cprevious<cr>
+nnoremap <leader>n :cnext<cr>
+nnoremap <leader>o :copen<cr>
+nnoremap <leader>c :cclose<cr>
 
 " Functions
 
@@ -183,7 +178,6 @@ au FileType javascript command! Lint :call s:JsLint(exists('s:jshintrc_path') ? 
 
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
-
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
 
 let g:vimclojure#HighlightBuiltins = 1
