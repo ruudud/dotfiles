@@ -13,13 +13,6 @@ then
       ln -sfn $basedir/$fl ${HOME}/.$fl
       echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
     done
-
-    # Prevent nautilus from opening desktop
-    gsettings set org.gnome.desktop.background show-desktop-icons false
-
-    venv_dir="${HOME}/dev/.virtualenvs"
-    mkdir -p $venv_dir
-    ln -sfn $basedir/virtualenvwrapper/postactivate $venv_dir/postactivate
 fi
 
 echo "Install solarized color scheme? (y/n)"
@@ -27,7 +20,7 @@ read color_answer
 
 if [ "$color_answer" == "y" ]
 then
-    /bin/bash $basedir/solarized/install.sh
+    /bin/bash $basedir/solarized/base16-solarized.dark.sh
 fi
 
 echo "Install fonts, xclip, vim, virtualenv and nvm? (y/n)"
@@ -35,6 +28,12 @@ read install_answer
 
 if [ "$install_answer" == "y" ]
 then
+    # Prevent nautilus from opening desktop
+    gsettings set org.gnome.desktop.background show-desktop-icons false
+    venv_dir="${HOME}/dev/.virtualenvs"
+    mkdir -p $venv_dir
+    ln -sfn $basedir/virtualenvwrapper/postactivate $venv_dir/postactivate
+
     sudo apt-get install curl fonts-inconsolata xclip vim python-pip python-setuptools libssl-dev build-essential
     sudo pip install --upgrade pip
     sudo pip install virtualenv virtualenvwrapper

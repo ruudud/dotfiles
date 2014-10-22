@@ -10,7 +10,9 @@ export EDITOR=vim
 
 
 colorscheme="$HOME/dotfiles/solarized/base16-solarized.dark-shell.sh"
-[[ -f "$colorscheme" ]] && . $colorscheme
+if shopt -q login_shell; then
+  [[ -f "$colorscheme" ]] && . $colorscheme
+fi
 
 
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
