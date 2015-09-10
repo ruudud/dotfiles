@@ -30,6 +30,8 @@ bindsym Print exec ~/dotfiles/bin/screenshot.sh
 exec --no-startup-id setxkbmap us,no '' compose:ralt ctrl:nocaps grp:lalt_lshift_toggle&
 # Set background image. Requires `feh`
 exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
+# Xrandr
+exec --no-startup-id xrandr --output DP-1 --left-of DP-2 --auto --output DP-5 --right-of DP-2 --auto --output DP-2 --primary --auto
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
