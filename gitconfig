@@ -17,7 +17,7 @@
   lg = log --graph --pretty=oneline --abbrev-commit
   w = whatchanged --pretty=short --abbrev-commit
   gd = log --decorate --cherry-mark --oneline --graph --boundary #$A"..."$B
-  review = difftool -y -t vimdiff origin/develop..#$A
+  review = difftool -y -t vimdiff origin/master..#$A
   diffs = diff --staged
   rank = shortlog -sn --no-merges
   praise = blame
