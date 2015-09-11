@@ -26,6 +26,8 @@ bindsym $mod+Shift+a [class="Gnome-terminal" title="VIM"] focus
 bindsym Print exec ~/dotfiles/bin/screenshot.sh
 
 # Autostart
+# ibus-daemon to support ctrl+shift+u
+exec --no-startup-id ibus-daemon --xim
 # Switch layout: left alt+left shift, caps as additional ctrl, alt as compose
 exec --no-startup-id setxkbmap us,no '' compose:ralt ctrl:nocaps grp:lalt_lshift_toggle&
 # Set background image. Requires `feh`

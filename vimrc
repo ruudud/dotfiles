@@ -13,10 +13,10 @@ highlight clear
 " Add hilight before colorscheme
 au ColorScheme * highlight ExtraWhitespace ctermbg=red
 
-let base16colorspace=256
-set t_Co=256
+syntax enable
 set background=dark
-colorscheme base16-solarized
+colorscheme solarized
+
 
 " Now we set some defaults for the editor
 set nobackup                    " Backup is for puppies
