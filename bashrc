@@ -11,8 +11,6 @@ export PS1="\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;31m\][\u@\h] \[\e[0;0m\]\w
 
 export EDITOR=vim
 
-PATH="$HOME/.rbenv/bin:$HOME/dotfiles/bin:$PATH"
-
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"

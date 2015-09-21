@@ -3,11 +3,12 @@
 basedir=$(readlink -m `dirname $0`)
 
 links=(
-  vim vimrc screenrc tmux.conf bashrc gitconfig
-  i3status.conf i3 urxvt Xresources fonts
+  profile xinitrc Xresources bashrc
+  vim vimrc screenrc tmux.conf gitconfig
+  i3status.conf i3 urxvt fonts
 )
 packages="curl rxvt-unicode-256color xclip vim git python-pip python-setuptools
-  libssl-dev build-essential"
+  gnupg gnupg-agent libssl-dev build-essential"
 
 echo "Symlink config files to $HOME (will overwrite)? (y/n)"
 read symlink_answer 
