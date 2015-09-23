@@ -10,13 +10,10 @@ links=(
 packages="curl rxvt-unicode-256color xclip vim git python-pip python-setuptools
   gnupg gnupg-agent libssl-dev build-essential"
 
-echo "Symlink config files to $HOME (will overwrite)? (y/n)"
-read symlink_answer 
-
+read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 if [[ "$symlink_answer" == "y" ]]; then
   rm -rf "${HOME}/.i3"
   for fl in "${links[@]}"; do
-    echo $fl
     ln -sfn $basedir/$fl ${HOME}/.$fl
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
   done
@@ -25,12 +22,13 @@ if [[ "$symlink_answer" == "y" ]]; then
   fc-cache -f
 fi
 
-echo "Install urxvt, xclip, vim, rbenv and nvm? (y/n)"
-read install_answer 
-
-if [[ "$install_answer" == "y" ]]; then
+read -n1 -p "Install urxvt, xclip, vim and other debs? (y/n)" debs_answer
+if [[ "$debs_answer" == "y" ]]; then
   sudo apt-get install "${packages}"
+fi
 
+read -n1 -p "Install rbenv and nvm? (y/n)" other_answer
+if [[ "$other_answer" == "y" ]]; then
   mkdir -p ~/.nvm
   curl -L https://github.com/creationix/nvm/archive/master.tar.gz \
     | tar -zx -C ${HOME}/.nvm --strip-components=1
