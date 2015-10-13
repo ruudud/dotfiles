@@ -8,7 +8,7 @@ links=(
   i3status.conf i3 urxvt fonts
 )
 packages="curl rxvt-unicode-256color xclip vim git python-pip python-setuptools
-  gnupg gnupg-agent libssl-dev build-essential"
+  gnupg gnupg-agent pinentry-curses libssl-dev build-essential"
 
 read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""

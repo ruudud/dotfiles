@@ -20,3 +20,7 @@ export EDITOR=vim
 
 eval "$(rbenv init -)"
 
+if [[ -f "${HOME}/.gpg-agent-info" ]]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+fi
