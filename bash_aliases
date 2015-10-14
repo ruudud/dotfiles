@@ -11,6 +11,7 @@ alias l='ls -CF'
 alias hdmi-sound='pactl set-card-profile 0 output:hdmi-stereo'
 alias hdmi-sound-off='pactl set-card-profile 0 output:analog-stereo'
 
+alias docker-ps='docker ps --format "{{.Names}};{{.Image}};{{.Ports}}" | column -ts ";"'
 alias docker-ip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
 alias docker-remove-dangling='docker rmi $(docker images --filter dangling=true --quiet)'
 docker-remote-tags() {
