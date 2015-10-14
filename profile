@@ -24,6 +24,9 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+eval "$(rbenv init -)"
+
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx
 fi

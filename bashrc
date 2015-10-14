@@ -13,12 +13,9 @@ export EDITOR=vim
 
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 [[ -f "$HOME/dotfiles/bash_aliases" ]] && . $HOME/dotfiles/bash_aliases
 
 [[ -f "$HOME/.bashrc-local" ]] && . "$HOME/.bashrc-local"
-
-eval "$(rbenv init -)"
 
 if [[ -f "${HOME}/.gpg-agent-info" ]]; then
   . "${HOME}/.gpg-agent-info"
