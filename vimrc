@@ -177,6 +177,15 @@ endfunction
 
 au FileType javascript command! Lint :call s:JsLint(exists('s:jshintrc_path') ? s:jshintrc_path : b:git_dir . '/../.jshintrc')
 
+" Shellcheck on shell files
+function! s:ShLint()
+  let l:out = system('shellcheck -f gcc ' . expand('%:p') . ' ' . '| sed "s,[0-9]*\:\s, ,"')
+  cexpr l:out
+  cwindow
+endfunction
+
+au FileType sh command! Lint :call s:ShLint()
+
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
