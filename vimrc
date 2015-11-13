@@ -192,3 +192,28 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|tar
 
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
+
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set norelativenumber
+        set colorcolumn=0
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        set relativenumber
+        set colorcolumn=80
+    endif
+endfunction
+
+nnoremap <leader>h :call ToggleHiddenAll()<CR>
+

@@ -6,9 +6,9 @@ URxvt.intensityStyles: false
 URxvt*iso14755: False
 Rxvt.inputMethod: ibus
 URxvt.preeditType: OverTheSpot
-URxvt.keysym.C-S-plus: font-size:increase
-URxvt.keysym.C-minus: font-size:decrease
-URxvt.keysym.C-0: font-size:reset
+URxvt.keysym.C-S-plus: perl:font-size:increase
+URxvt.keysym.C-minus: perl:font-size:decrease
+URxvt.keysym.C-0: perl:font-size:reset
 
 !-------------------------------------------------------------------------------
 ! Xft settings

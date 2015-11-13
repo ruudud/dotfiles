@@ -14,6 +14,8 @@ alias hdmi-sound-off='pactl set-card-profile 0 output:analog-stereo'
 alias docker-ps='docker ps --format "{{.Names}};{{.Image}};{{.Ports}}" | column -ts ";"'
 alias docker-ip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
 alias docker-remove-dangling='docker rmi $(docker images --filter dangling=true --quiet)'
+alias docker-c='docker-compose'
 docker-remote-tags() {
   curl -s https://dr.api.no/v1/repositories/$1/tags | python -m json.tool
 }
+
