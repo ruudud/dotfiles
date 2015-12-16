@@ -19,6 +19,7 @@ colorscheme solarized
 
 
 " Now we set some defaults for the editor
+set completeopt=menu            " Don't display preview window in addition to popup
 set nobackup                    " Backup is for puppies
 set nowritebackup
 set cryptmethod=blowfish        " Zip is too easy to crack

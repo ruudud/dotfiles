@@ -9,7 +9,7 @@
 #umask 022
 
 
-PATH="$HOME/.rbenv/bin:$HOME/dotfiles/bin:$PATH"
+PATH="$HOME/.rbenv/bin:$HOME/dotfiles/bin:/usr/local/go/bin:$PATH"
 
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
