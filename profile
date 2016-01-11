@@ -27,7 +27,5 @@ fi
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 eval "$(rbenv init -)"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec startx
-fi
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 

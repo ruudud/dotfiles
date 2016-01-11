@@ -7,8 +7,9 @@ links=(
   vim vimrc screenrc tmux.conf gitconfig
   i3status.conf i3 urxvt fonts
 )
-packages="curl rxvt-unicode-256color xclip vim git python-pip python-setuptools
-  gnupg gnupg-agent pinentry-curses libssl-dev build-essential"
+packages="curl wget the_silver_searcher vim git openssh xclip\
+  rxvt-unicode urxvt-perls pass bash-completion python-pip\
+  gnupg pinentry-curses yubico-pam pcsc-tools libusb-compat pcsclite"
 
 read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
@@ -23,10 +24,10 @@ if [[ "$symlink_answer" == "y" ]]; then
   fc-cache -f
 fi
 
-read -n1 -p "Install urxvt, xclip, vim and other debs? (y/n)" debs_answer
+read -n1 -p "Install ${packages[@]}? (y/n)" debs_answer
 echo ""
 if [[ "$debs_answer" == "y" ]]; then
-  sudo apt-get install "${packages}"
+  sudo pacman -Syu "${packages}"
 fi
 
 read -n1 -p "Install rbenv and nvm? (y/n)" other_answer
