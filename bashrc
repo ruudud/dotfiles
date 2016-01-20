@@ -21,8 +21,3 @@ export GOPATH="$HOME/dev/go"
 [[ -f "$HOME/dotfiles/bash_aliases" ]] && . $HOME/dotfiles/bash_aliases
 
 [[ -f "$HOME/.bashrc-local" ]] && . "$HOME/.bashrc-local"
-
-if [[ -f "${HOME}/.gpg-agent-info" ]]; then
-  . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
-fi
