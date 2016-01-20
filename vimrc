@@ -136,6 +136,7 @@ au FilterWritePre * if &diff | set wrap | endif
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
 au BufNewFile,BufRead *.groovy     setlocal filetype=groovy
 au BufNewFile,BufRead *.md         setlocal filetype=markdown
+au BufNewFile,BufRead *.eyaml      setlocal filetype=yaml
 
 " Lint (based on filetype)
 nnoremap <leader>l :Lint<cr>

@@ -11,6 +11,11 @@ export PS1="\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;31m\][\u@\h] \[\e[0;0m\]\w
 
 export EDITOR=vim
 
+# IntelliJ fix
+export IBUS_ENABLE_SYNC_MODE=1
+
+export GOPATH="$HOME/dev/go"
+
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
 [[ -f "$HOME/dotfiles/bash_aliases" ]] && . $HOME/dotfiles/bash_aliases
