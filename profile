@@ -24,7 +24,8 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+[[ -s /usr/bin/virtualenvwrapper.sh ]] && . /usr/bin/virtualenvwrapper.sh
+[[ -s "${HOME}/.nvm/nvm.sh" ]] && . "${HOME}/.nvm/nvm.sh"
 eval "$(rbenv init -)"
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

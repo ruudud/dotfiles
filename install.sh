@@ -9,7 +9,8 @@ links=(
 )
 packages="curl wget the_silver_searcher vim git openssh xclip\
   rxvt-unicode urxvt-perls pass bash-completion python-pip\
-  gnupg pinentry-curses yubico-pam pcsc-tools libusb-compat pcsclite"
+  python-virtualenvwrapper gnupg pinentry-curses yubico-pam pcsc-tools\
+  libusb-compat pcsclite"
 
 read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
@@ -22,6 +23,9 @@ if [[ "$symlink_answer" == "y" ]]; then
 
   # Rebuild fonts cache
   fc-cache -f
+
+  # Create Virtualenvwrapper folder
+  mkdir -p "${HOME}/dev/python"
 fi
 
 read -n1 -p "Install ${packages[@]}? (y/n)" debs_answer
