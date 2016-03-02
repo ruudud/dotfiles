@@ -1,7 +1,7 @@
 alias crash-tunnel='ssh -L 4200:localhost:4243 cum'
 # Xrandr
 alias xrandr-single='xrandr --auto --output LVDS1'
-alias xrandr-double='xrandr --output HDMI1 --right-of LVDS1 --auto'
+alias xrandr-double='xrandr --output DP1 --above LVDS1 --auto'
 
 # ls aliases
 alias ll='ls -ahlF'
