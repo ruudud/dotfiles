@@ -1,3 +1,19 @@
+# Perform file completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+# Display matches for ambiguous patterns at first tab press
+bind "set show-all-if-ambiguous on"
+# Prepend cd to directory names automatically
+shopt -s autocd
+# Correct spelling errors during tab-completion
+shopt -s dirspell
+# Correct spelling errors in arguments supplied to cd
+shopt -s cdspell
+# Export a variable containing a path and you will be able to cd into it
+# regardless of the directory you're in
+shopt -s cdable_vars
+# ..like so:
+export dotfiles="$HOME/dotfiles"
+
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
