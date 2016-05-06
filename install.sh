@@ -8,6 +8,7 @@ links=(
   i3status.conf i3 urxvt fonts
 )
 packages="curl wget the_silver_searcher vim git openssh xclip\
+  shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   rxvt-unicode urxvt-perls pass bash-completion python-pip\
   python-virtualenvwrapper gnupg pinentry-curses yubico-pam pcsc-tools\
   libusb-compat pcsclite"

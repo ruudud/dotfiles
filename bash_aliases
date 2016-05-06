@@ -11,10 +11,14 @@ alias l='ls -CF'
 alias hdmi-sound='pactl set-card-profile 0 output:hdmi-stereo'
 alias hdmi-sound-off='pactl set-card-profile 0 output:analog-stereo'
 
-alias docker-ps='docker ps --format "{{.Names}};{{.Image}};{{.Ports}}" | column -ts ";"'
-alias docker-ip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
+alias dps='docker ps --format "{{.Names}};{{.Image}};{{.Ports}}" | column -ts ";"'
+alias dip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
 alias dcc='docker-compose'
+alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc'
 
 fh() {
   find . -name "$1" -print
+}
+cdd() {
+  cd $(dirname "$1")
 }
