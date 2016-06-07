@@ -155,18 +155,6 @@ nnoremap <leader>c :cclose<cr>
 
 " Functions
 
-" Pylint on python files
-function! s:PyLint(rcfile)
-  if exists('a:rcfile')
-    let l:lint = 'pylint --output-format=parseable --include-ids=y --reports=n --rcfile='.a:rcfile
-  else
-    let l:lint = 'pylint --output-format=parseable --include-ids=y --reports=n'
-  endif
-  cexpr system(l:lint . ' ' . expand('%'))
-endfunction
-
-au FileType python command! Lint :call s:PyLint(exists('s:pylintrc_path') ? s:pylintrc_path : '')
-
 " Jshint on javascript files
 function! s:JsLint(rcfile)
   let l:lint = 'jshint'
@@ -229,3 +217,6 @@ endfunction
 
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+nnoremap <leader>e :Errors<cr>
