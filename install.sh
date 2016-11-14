@@ -12,6 +12,7 @@ packages="curl wget the_silver_searcher vim git openssh xclip\
   rxvt-unicode urxvt-perls pass bash-completion python-pip\
   python-virtualenvwrapper gnupg pinentry-curses yubico-pam pcsc-tools\
   libusb-compat pcsclite"
+pythonpackages="tmuxp"
 
 read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
@@ -33,6 +34,10 @@ read -n1 -p "Install ${packages[@]}? (y/n)" debs_answer
 echo ""
 if [[ "$debs_answer" == "y" ]]; then
   sudo pacman -Syu "${packages}"
+
+  # Upgrade pip
+  sudo pip install -U pip
+  pip install --user "${pythonpackages}"
 fi
 
 read -n1 -p "Install rbenv and nvm? (y/n)" other_answer
