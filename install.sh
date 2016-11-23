@@ -9,9 +9,11 @@ links=(
 )
 packages="curl wget the_silver_searcher vim git openssh xclip\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
-  rxvt-unicode urxvt-perls pass bash-completion python-pip\
-  python-virtualenvwrapper gnupg pinentry-curses yubico-pam pcsc-tools\
-  libusb-compat pcsclite"
+  rxvt-unicode urxvt-perls pass bash-completion\
+  tmux\
+  python-pip python-virtualenvwrapper\
+  gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
+
 pythonpackages="tmuxp"
 
 read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
