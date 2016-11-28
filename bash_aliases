@@ -14,3 +14,6 @@ fh() {
 cdd() {
   cd $(dirname "$1")
 }
+cdgit() {
+    cd $(git rev-parse --show-toplevel)
+}
