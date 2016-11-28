@@ -40,7 +40,7 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt*font: xft:Inconsolata:pixelsize=13:antialias:true:hinting:true
+URxvt*font: xft:Inconsolata:antialias:true:hinting:true:pixelsize=13, xft:Symbola:pixelsize=8
 URxvt*boldFont: xft:Inconsolata:style=Bold:pixelsize=13:antialias:true:hinting:true
 
 ! Fix font space
