@@ -7,12 +7,14 @@ links=(
   vim vimrc screenrc tmux.conf gitconfig
   i3status.conf i3 urxvt fonts
 )
-packages="curl wget the_silver_searcher vim git openssh xclip\
+packages="curl wget the_silver_searcher vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
+  xclip xorg-xinit xorg-xev xorg-xbacklight\
+  alsa-utils pulseaudio pavucontrol\
   rxvt-unicode urxvt-perls pass bash-completion\
   tmux\
   python-pip python-virtualenvwrapper\
-  gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
+  keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
 pythonpackages="tmuxp"
 
