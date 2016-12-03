@@ -56,8 +56,7 @@ set showcmd                     " Show (partial) command in status line.
 set showmatch                   " Show matching brackets.
 set showmode                    " Show mode we are in
 set visualbell                  " Blink, no sound
-set pastetoggle=<F2>            " Press F2 to enter paste mode
-set clipboard=unnamed			" OSX clipboard integration
+set pastetoggle=<F3>            " Press F2 to enter paste mode
 set errorformat=%f:%l:\ %m      "
 set scrolloff=3                 " Keep more context when scrolling
 set title
