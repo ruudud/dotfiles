@@ -1,6 +1,6 @@
 [options]
-font = Noto Emoji 12
-font = Noto Mono 12
+font = Font Awesome 10
+font = Inconsolata 10
 
 # Solarized dark color scheme
 [colors]

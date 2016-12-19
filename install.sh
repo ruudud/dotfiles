@@ -11,7 +11,7 @@ packages="curl wget the_silver_searcher vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xclip xorg-xinit xorg-xev xorg-xbacklight\
   alsa-utils pulseaudio pavucontrol\
-  termite noto-fonts noto-fonts-emoji\
+  termite ttf-inconsolata\
   pass bash-completion tmux\
   python-pip python-virtualenvwrapper\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
