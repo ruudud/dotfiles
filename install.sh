@@ -12,7 +12,7 @@ packages="curl wget the_silver_searcher vim git openssh rsync\
   xclip xorg-xinit xorg-xev xorg-xbacklight\
   alsa-utils pulseaudio pavucontrol\
   termite ttf-inconsolata\
-  pass bash-completion tmux\
+  pass bash-completion tmux acpid\
   python-pip python-virtualenvwrapper\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
