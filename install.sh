@@ -10,7 +10,7 @@ links=(
 packages="curl wget the_silver_searcher vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xclip xorg-xinit xorg-xev xorg-xbacklight\
-  alsa-utils pulseaudio pavucontrol\
+  alsa-utils pulseaudio pavucontrol pamixer\
   termite ttf-inconsolata\
   pass bash-completion tmux acpid\
   python-pip python-virtualenvwrapper\
