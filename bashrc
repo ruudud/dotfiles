@@ -1,7 +1,3 @@
-# Perform file completion in a case insensitive fashion
-bind "set completion-ignore-case on"
-# Display matches for ambiguous patterns at first tab press
-bind "set show-all-if-ambiguous on"
 # append to history, not overwrite
 shopt -s histappend
 # Prepend cd to directory names automatically
@@ -16,6 +12,13 @@ shopt -s cdable_vars
 # ..like so:
 export dotfiles="$HOME/dotfiles"
 
+# For interactive shells only
+if [[ -t 1 ]]; then
+  # Perform file completion in a case insensitive fashion
+  bind "set completion-ignore-case on"
+  # Display matches for ambiguous patterns at first tab press
+  bind "set show-all-if-ambiguous on"
+fi
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
