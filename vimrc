@@ -1,6 +1,7 @@
 " Configuration file for vim
 "Kudos: Berge, xim, sjl
 
+
 filetype off
 " Add pathogen
 call pathogen#runtime_append_all_bundles()
@@ -31,6 +32,7 @@ set shiftround                  " Indent/outdent to nearest tabstops
 set softtabstop=4               " How many columns to insert when pressing Tab-key
 set tabstop=4                   " Number of coloumns to indent
 set expandtab                   " Set spaces instead of <tab>
+set smarttab                    " Insert blanks according to 'shiftwidth'
 set wrap                        " Text wrapping on
 set textwidth=79                " Wrap words by default
 set colorcolumn=80              " Color long lines
@@ -220,3 +222,9 @@ nnoremap <leader>h :call ToggleHiddenAll()<CR>
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 nnoremap <leader>e :Errors<cr>
+
+" load per machine settings, missing file will be ignored.
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
