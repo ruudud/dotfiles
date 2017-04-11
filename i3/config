@@ -16,7 +16,8 @@ bindsym $mod+F1 exec pamixer -t
 
 bindsym $mod+Shift+a [title="VIM"] focus
 
-bindsym Print exec ~/dotfiles/bin/screenshot.sh
+bindsym Print exec screenshot
+bindsym $mod+Shift+D exec passmenu
 
 # Autostart
 # ibus-daemon to support ctrl+shift+u
