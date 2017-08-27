@@ -23,7 +23,7 @@ colorscheme solarized
 set completeopt=menu            " Don't display preview window in addition to popup
 set nobackup                    " Backup is for puppies
 set nowritebackup
-set cryptmethod=blowfish        " Zip is too easy to crack
+set cryptmethod=blowfish2       " Zip is too easy to crack
 set noswapfile
 set encoding=utf-8              " wtf-8
 set autoindent                  " always set autoindenting on
@@ -219,6 +219,8 @@ endfunction
 
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = systemlist("npm bin")[0] . '/eslint' "'$(npm bin)/eslint'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 nnoremap <leader>e :Errors<cr>
