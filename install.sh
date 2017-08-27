@@ -44,10 +44,7 @@ fi
 read -n1 -p "Install rbenv and nvm? (y/n)" other_answer
 echo ""
 if [[ "$other_answer" == "y" ]]; then
-  mkdir -p ~/.nvm
-  curl -L https://github.com/creationix/nvm/archive/master.tar.gz \
-    | tar -zx -C ${HOME}/.nvm --strip-components=1
-
+  git clone https://github.com/creationix/nvm.git ~/.nvm
   git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
