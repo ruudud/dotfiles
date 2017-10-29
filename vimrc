@@ -135,6 +135,7 @@ au FilterWritePre * if &diff | set wrap | endif
 
 " Set some filetypes
 au BufNewFile,BufRead *.ts         setlocal filetype=javascript
+au BufNewFile,BufRead *.tsx        setlocal filetype=javascript
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
 au BufNewFile,BufRead *.groovy     setlocal filetype=groovy
 au BufNewFile,BufRead *.md         setlocal filetype=markdown
