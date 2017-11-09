@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+_help() {
+  cat <<EOT
+Usage: $(basename "$0") <[options]>
+
+Assumes that lights starts "on", and will run given commands when that state
+changes between off/on. "Lights" goes off when current window is in
+fullscreen.
+
+Options:
+  -h                  Show help text
+  -i <num>            Sleep interval between state check. (60s)
+  -o '<cmd>'          Run when lights goes on (exit fullscreen)
+  -f '<cmd>'          Run when lights goes off (enter fullscreen) 
+EOT
+}
+
+DEFAULT_INTERVAL="60"
+
+run_loop() {
+  local active_win active_win_id interval lights_on_cmd lights_off_cmd ret
+  local lights_off=0
+
+  lights_on_cmd="$1"
+  lights_off_cmd="$2"
+  interval="$3"
+  while true; do
+    active_win=$(xprop -root _NET_ACTIVE_WINDOW)
+    active_win_id=${active_win:40:9}
+    xprop -id "$active_win_id" | grep -q _NET_WM_STATE_FULLSCREEN
+    ret="$?"
+    if [[ "$ret" == 0 ]]; then
+      if [[ "$lights_off" != 1 ]]; then
+        lights_off=1
+        eval "$lights_off_cmd"
+      fi
+    else
+      if [[ "$lights_off" == 1 ]]; then
+        lights_off=0
+        eval "$lights_on_cmd"
+      fi
+    fi
+    sleep "$interval"
+  done
+}
+
+main() {
+  local opt lights_on_cmd lights_off_cmd interval
+
+  OPTIND=1
+  while getopts ":hi:o:f:" opt; do
+    case "$opt" in
+      o)
+        lights_on_cmd="${OPTARG}"
+        ;;
+      f)
+        lights_off_cmd="${OPTARG}"
+        ;;
+      i)
+        interval="${OPTARG}"
+        ;;
+      h)
+        _help && exit 0
+        ;;
+      \?)
+        echo -e "Invalid option: -${OPTARG}\n" >&2 && _help && exit 2
+        ;;
+    esac
+  done
+
+  interval="${interval:-$DEFAULT_INTERVAL}"
+
+  cat <<EOT
+Checking every ${interval}s.
+When lights off: ${lights_off_cmd}
+When lights on: ${lights_on_cmd}
+EOT
+
+  run_loop "$lights_on_cmd" "$lights_off_cmd" "$interval" 
+}
+
+main "$@"

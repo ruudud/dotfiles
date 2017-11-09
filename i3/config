@@ -30,6 +30,9 @@ exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
 exec --no-startup-id xrandr --output DP2-2 --right-of eDP1 --output DP2-1 --left-of eDP1 --auto
 # Disable touchpad
 exec --no-startup-id /usr/local/bin/touchpad_toggle.sh
+# lock screen after inactivity, but disable on fullscreen
+exec --no-startup-id xautolock -time 5 -locker 'i3lock -c 141414' &
+exec --no-startup-id ~/dotfiles/bin/lights-on -o 'xautolock -enable' -f 'xautolock -disable' &
 
 # font for window titles. ISO 10646 = Unicode
 font pango:Inconsolata 10, FontAwesome 10
@@ -69,6 +72,8 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+bindsym $mod+Ctrl+Shift+Up move workspace to output up
 
 # split in horizontal orientation
 bindsym $mod+g split h
