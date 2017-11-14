@@ -5,7 +5,7 @@ basedir=$(readlink -m `dirname $0`)
 links=(
   fonts profile xinitrc Xresources bashrc
   vim vimrc screenrc tmux.conf gitconfig
-  i3status.conf i3 config/termite
+  i3status.conf i3 config/termite curlrc
 )
 packages="curl wget the_silver_searcher vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
