@@ -20,16 +20,14 @@ bindsym Print exec screenshot
 bindsym $mod+Shift+D exec passmenu
 
 # Autostart
-# ibus-daemon to support ctrl+shift+u
-exec --no-startup-id ibus-daemon --xim
-# caps as additional ctrl, alt as compose
-exec --no-startup-id setxkbmap -layout gb '' compose:ralt ctrl:nocaps
 # Set background image. Requires `feh`
 exec --no-startup-id feh --bg-fill ~/Pictures/bg.png
 # Xrandr
 exec --no-startup-id xrandr --output DP2-2 --right-of eDP1 --output DP2-1 --left-of eDP1 --auto
 # Disable touchpad
 exec --no-startup-id /usr/local/bin/touchpad_toggle.sh
+# caps as additional ctrl, alt as compose
+# exec --no-startup-id setxkbmap -layout gb '' compose:ralt ctrl:nocaps
 # lock screen after inactivity, but disable on fullscreen
 exec --no-startup-id xautolock -time 5 -locker 'i3lock -c 141414' &
 exec --no-startup-id ~/dotfiles/bin/lights-on -o 'xautolock -enable' -f 'xautolock -disable' &
