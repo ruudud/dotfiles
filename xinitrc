@@ -1,4 +1,3 @@
-gpg-agent --daemon --enable-ssh-support ||:
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
