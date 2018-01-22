@@ -3,7 +3,7 @@
 basedir=$(readlink -m `dirname $0`)
 
 links=(
-  fonts profile xinitrc Xresources bashrc
+  fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
   i3status.conf i3 config/termite curlrc
 )
