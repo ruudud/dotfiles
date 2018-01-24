@@ -24,7 +24,7 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
 }
 
-export TERMINAL='urxvt'
+export TERMINAL='termite'
 export BROWSER='chromium'
 export TERM='xterm-256color'
 [[ -n "$TMUX" ]] && export TERM='screen-256color'
