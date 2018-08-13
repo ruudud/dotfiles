@@ -13,6 +13,8 @@ bindsym XF86AudioMute exec pamixer -t
 bindsym $mod+F3 exec pamixer -i 5
 bindsym $mod+F2 exec pamixer -d 5
 bindsym $mod+F1 exec pamixer -t
+bindsym $mod+F5 exec spotify-ctrl previous
+bindsym $mod+F6 exec spotify-ctrl next
 
 bindsym $mod+Shift+a [title="VIM"] focus
 
