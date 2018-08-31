@@ -7,7 +7,7 @@ links=(
   vim vimrc screenrc tmux.conf gitconfig
   i3status.conf i3 config/termite curlrc
 )
-packages="curl wget the_silver_searcher vim git openssh rsync\
+packages="curl wget the_silver_searcher bat vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
@@ -31,9 +31,9 @@ if [[ "$symlink_answer" == "y" ]]; then
   mkdir -p "${HOME}/dev/python"
 fi
 
-read -n1 -p "Install ${packages[@]}? (y/n)" debs_answer
+read -n1 -p "Install ${packages[@]}? (y/n)" deps_answer
 echo ""
-if [[ "$debs_answer" == "y" ]]; then
+if [[ "$deps_answer" == "y" ]]; then
   sudo pacman -Syu "${packages}"
 
   # Upgrade pip

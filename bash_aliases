@@ -3,6 +3,7 @@ alias ll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias cat='bat'
 alias dps='docker ps --format "{{.Names}};{{.Image}};{{.Ports}}" | column -ts ";"'
 alias dip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
 alias dcc='docker-compose'
