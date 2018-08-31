@@ -134,6 +134,7 @@ au BufNewFile,BufRead urls.py      setlocal nowrap
 au FilterWritePre * if &diff | set wrap | endif
 
 " Set some filetypes
+au BufNewFile,BufRead *.ftl        setlocal filetype=html
 au BufNewFile,BufRead *.ts         setlocal filetype=javascript
 au BufNewFile,BufRead *.tsx        setlocal filetype=javascript
 au BufNewFile,BufRead *.coffee     setlocal filetype=coffee

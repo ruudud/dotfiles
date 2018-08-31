@@ -31,3 +31,6 @@
   default = simple
 [branch]
   autosetuprebase = always
+[help]
+  # Automatically correct and execute mistyped commands
+  autocorrect = 1

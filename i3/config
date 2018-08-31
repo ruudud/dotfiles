@@ -49,6 +49,8 @@ bindsym $mod+Shift+Q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
+bindsym $mod+Shift+u move workspace to output up
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
