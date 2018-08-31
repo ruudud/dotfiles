@@ -16,10 +16,11 @@ au ColorScheme * highlight ExtraWhitespace ctermbg=red
 
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme solarized8_flat
 
 
 " Now we set some defaults for the editor
+set termguicolors               " All the colors
 set completeopt=menu            " Don't display preview window in addition to popup
 set nobackup                    " Backup is for puppies
 set nowritebackup
