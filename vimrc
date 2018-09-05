@@ -16,7 +16,7 @@ au ColorScheme * highlight ExtraWhitespace ctermbg=red
 
 syntax enable
 set background=dark
-colorscheme solarized8_flat
+colorscheme solarized8
 
 
 " Now we set some defaults for the editor
