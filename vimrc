@@ -70,6 +70,8 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 " And some variables..
 let mapleader = ","
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Automatically cd into the directory that the opened file is in
 au BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
