@@ -13,7 +13,7 @@ packages="curl wget the_silver_searcher bat vim git openssh rsync\
   alsa-utils pulseaudio pavucontrol pamixer\
   termite ttf-inconsolata\
   pass bash-completion tmux acpid\
-  python-pip python-virtualenvwrapper\
+  imagemagick python-pip python-virtualenvwrapper\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
 pythonpackages="tmuxp"

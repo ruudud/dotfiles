@@ -1,0 +1,11 @@
+#!/bin/bash
+SCREENSHOTDIR=~/Pictures
+NOW="$(date +%Y-%d-%m-%H:%M:%S)"
+FILENAME="${SCREENSHOTDIR}/screensnap-${NOW}.png"
+
+import "$FILENAME"
+IMPORT_RESULT="$?"
+
+if [[ "$IMPORT_RESULT" == "0" ]]; then
+  xclip -sel clip -t image/png < "$FILENAME"
+fi
