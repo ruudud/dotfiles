@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+model="$(check-sys-model)"
+
+case $model in
+  "ThinkPad X1"*)
+    exec i3status -c "${HOME}/dotfiles/i3status.X1.conf"
+    ;;
+  *)
+    exec i3status -c "${HOME}/dotfiles/i3status.x230.conf"
+    ;;
+esac
+
+

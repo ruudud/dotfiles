@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+model="$(cat /sys/devices/virtual/dmi/id/product_version)"
+
+if [[ $# == 0 ]]; then
+  echo "$model"
+  exit 0
+fi
+
+comparing="$1"
+
+if [[ "$model" == "$comparing"* ]]; then
+  exit 0
+fi
+exit 1
