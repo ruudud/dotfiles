@@ -1,6 +1,5 @@
-[user]
-  name = Pål Ruud
-  email = ruudud@gmail.com
+[include]
+  path = ~/.gitconfig-local
 [color]
   ui = auto
 [core]
