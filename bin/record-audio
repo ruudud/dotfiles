@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+base_fname="${HOME}/audio-out_$(date +%Y%m%d_%H%M%S)"
+spkr_audio_device="alsa_output.pci-0000_00_1b.0.analog-stereo.monitor"
+mic_audio_device="alsa_input.pci-0000_00_1b.0.analog-stereo"
+
+quitfn() {
+  kill -INT $spkr_pid
+  kill -INT $mic_pid
+}
+trap quitfn INT
+
+
+parec -d "$spkr_audio_device" | lame -r -V0 - "${base_fname}-speakers.mp3" &
+spkr_pid=$!
+
+parec -d "$mic_audio_device" | lame -r -V0 - "${base_fname}-mic.mp3" &
+mic_pid=$!
+
+
+echo "Filename: $base_fname"
+echo "Waiting for CTRL+C.."
+
+wait
