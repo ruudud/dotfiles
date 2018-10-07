@@ -63,7 +63,10 @@ set pastetoggle=<F3>            " Press F2 to enter paste mode
 set errorformat=%f:%l:\ %m      "
 set scrolloff=3                 " Keep more context when scrolling
 set title
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
 syntax on                       " I like syntax hilight
+
 
 " Suffixes that get lower priority when doing tab completion
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc

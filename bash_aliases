@@ -9,6 +9,9 @@ alias dip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
 alias dcc='docker-compose'
 alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc'
 
+agv() {
+  vim -c "silent grep $*" +cw
+}
 fh() {
   find . -name "$1" -print
 }
