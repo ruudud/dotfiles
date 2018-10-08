@@ -107,8 +107,8 @@ bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
-bindsym $mod+Shift+quotedbl move container to workspace 2
-bindsym $mod+Shift+sterling move container to workspace 3
+bindcode $mod+Shift+11 move container to workspace 2
+bindcode $mod+Shift+12 move container to workspace 3
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
