@@ -10,7 +10,7 @@ alias dcc='docker-compose'
 alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc'
 
 agv() {
-  vim -c "silent grep $*" +cw
+  vim -c "silent grep $* $(git rev-parse --show-toplevel)" +cw
 }
 fh() {
   find . -name "$1" -print
