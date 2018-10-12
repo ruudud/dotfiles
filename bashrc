@@ -18,6 +18,8 @@ if [[ -t 1 ]]; then
   bind "set completion-ignore-case on"
   # Display matches for ambiguous patterns at first tab press
   bind "set show-all-if-ambiguous on"
+  # No need to disable flow
+  stty -ixon
 fi
 
 parse_git_branch() {
