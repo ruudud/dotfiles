@@ -1,5 +1,6 @@
 include "%L"
 
+<Multi_key> <minus> <slash>             : "✓" U2713 # CHECK MARK
 <Multi_key> <t> <u> <p>                 : "👍" U1F44D # THUMBS UP SIGN
 <Multi_key> <m> <s>                     : "᠎"   U180E  # MONGOLIAN VOWEL SEPARATOR
 <Multi_key> <asciicircum> <asciicircum> : "↑"   U2191  # Upwards arrow
