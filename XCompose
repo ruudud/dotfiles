@@ -5,3 +5,29 @@ include "%L"
 <Multi_key> <m> <s>                     : "᠎"   U180E  # MONGOLIAN VOWEL SEPARATOR
 <Multi_key> <asciicircum> <asciicircum> : "↑"   U2191  # Upwards arrow
 <Multi_key> <v> <v>                     : "↓"   U2193  # Downwards arrow
+
+<Multi_key> <g> <a>            : "α"   U03B1    # GREEK SMALL LETTER ALPHA
+<Multi_key> <g> <b>            : "β"   U03B2    # GREEK SMALL LETTER BETA
+<Multi_key> <g> <d>            : "δ"   U03B4    # GREEK SMALL LETTER DELTA
+<Multi_key> <g> <e>            : "ε"   U03B5    # GREEK SMALL LETTER EPSILON
+<Multi_key> <g> <f>            : "φ"   U03C6    # GREEK SMALL LETTER PHI
+<Multi_key> <g> <g>            : "γ"   U03B3    # GREEK SMALL LETTER GAMMA
+<Multi_key> <g> <h>            : "η"   U03B7    # GREEK SMALL LETTER ETA
+<Multi_key> <g> <i>            : "ι"   U03B9    # GREEK SMALL LETTER IOTA
+<Multi_key> <g> <j>            : "θ"   U03B8    # GREEK SMALL LETTER THETA
+<Multi_key> <g> <k>            : "κ"   U03BA    # GREEK SMALL LETTER KAPPA
+<Multi_key> <g> <l>            : "λ"   U03BB    # GREEK SMALL LETTER LAMDA
+<Multi_key> <g> <m>            : "μ"   U03BC    # GREEK SMALL LETTER MU
+<Multi_key> <g> <n>            : "ν"   U03BD    # GREEK SMALL LETTER NU
+<Multi_key> <g> <o>            : "ο"   U03BF    # GREEK SMALL LETTER OMICRON
+<Multi_key> <g> <p>            : "π"   U03C0    # GREEK SMALL LETTER PI
+<Multi_key> <g> <q>            : "χ"   U03C7    # GREEK SMALL LETTER CHI
+<Multi_key> <g> <r>            : "ρ"   U03C1    # GREEK SMALL LETTER RHO
+<Multi_key> <g> <s>            : "σ"   U03C3    # GREEK SMALL LETTER SIGMA
+<Multi_key> <g> <t>            : "τ"   U03C4    # GREEK SMALL LETTER TAU
+<Multi_key> <g> <u>            : "υ"   U03C5    # GREEK SMALL LETTER UPSILON
+<Multi_key> <g> <w>            : "ω"   U03C9    # GREEK SMALL LETTER OMEGA
+<Multi_key> <g> <x>            : "ξ"   U03BE    # GREEK SMALL LETTER XI
+<Multi_key> <g> <y>            : "ψ"   U03C8    # GREEK SMALL LETTER PSI
+<Multi_key> <g> <z>            : "ζ"   U03B6    # GREEK SMALL LETTER ZETA
+<Multi_key> <g> <nobreakspace> : "µ"   U00B5    # MICRO SIGN
