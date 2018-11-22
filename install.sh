@@ -5,7 +5,7 @@ basedir=$(readlink -m `dirname $0`)
 links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
-  i3status.conf i3 config/termite curlrc
+  i3 config/termite curlrc
 )
 packages="curl wget the_silver_searcher bat vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
@@ -22,6 +22,7 @@ read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
 if [[ "$symlink_answer" == "y" ]]; then
   rm -rf "${HOME}/.i3"
+  mkdir -p "${HOME}/.config"
   for fl in "${links[@]}"; do
     ln -sfn $basedir/$fl ${HOME}/.$fl
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
