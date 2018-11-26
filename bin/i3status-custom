@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+i3status-switch | while :
+do
+    read line
+    prefix=''
+    if [[ "$line" == ",[{"* ]]; then
+        line="${line:1}"
+        prefix=','
+    fi
+    if [[ "$line" == "[{"* ]]; then
+        out=$(echo "$line" | jq -c '. |= [{ name: "spotify", markup: "none", "color": "#9ec600", "full_text": " Gladlaksene - Du å me" }] + .')
+        echo "${prefix}${out}"
+    else
+        echo "$line" || exit 1
+    fi
+done
+
