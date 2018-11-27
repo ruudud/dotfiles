@@ -3,62 +3,38 @@
 # Simple Spotify Control
 # ./spotify-ctrl [playpause,next,previous,stop,play]
 
+SP_DEST="org.mpris.MediaPlayer2.spotify"
 SP_PATH="/org/mpris/MediaPlayer2"
 SP_MEMB="org.mpris.MediaPlayer2.Player"
-BASE_CMD="dbus-send --print-reply=literal --dest=org.mpris.MediaPlayer2.spotify"
-CMD="${BASE_CMD} ${SP_PATH} ${SP_MEMB}"
+DBUS_PROP_GET="org.freedesktop.DBus.Properties.Get"
+DBUS_BASE_ACTION_CMD="dbus-send --print-reply=literal --dest=${SP_DEST}"
 
-read -r -d '' AWKEXPR <<'EOF'
-/string  *"xesam:artist/{
-    while (1) {
-        getline line
-        if (line ~ /string "/) {
-            sub(/.*string "/, "artist:", line)
-            sub(/".*$/, "", line)
-            print line
-            break
-        }
-    }
+do_spotify_action() {
+    ${DBUS_BASE_ACTION_CMD} ${SP_PATH} "${SP_MEMB}.$1"
+    exit $?
 }
-/string  *"xesam:title/{
-    while(1) {
-        getline line
-        if (line ~ /string "/) {
-            sub(/.*string "/, "title:", line)
-            sub(/".*$/, "", line)
-            print line
-            break
-        }
-    }
-}
-EOF
 
 case "$1" in
   "playpause")
-    ${CMD}.PlayPause
-    exit $?
+    do_spotify_action "PlayPause"
   ;;
   "next")
-    ${CMD}.Next
-    exit $?
+    do_spotify_action "Next"
   ;;
   "previous")
-    ${CMD}.Previous
-    exit $?
+    do_spotify_action "Previous"
   ;;
   "stop")
-    ${CMD}.Stop
-    exit $?
+    do_spotify_action "Stop"
   ;;
   "play")
-    ${CMD}.Play
-    exit $?
+    do_spotify_action "Play"
   ;;
   "status")
-    meta=$(${BASE_CMD} ${SP_PATH} org.freedesktop.DBus.Properties.Get string:${SP_MEMB} string:'Metadata')
+    meta=$(${DBUS_BASE_ACTION_CMD} ${SP_PATH} ${DBUS_PROP_GET} string:${SP_MEMB} string:'Metadata')
     title=$(echo "$meta" | awk -F' {2,}' '/xesam:title/ {print $4}')
     artist=$(echo "$meta" | awk -F' {2,}' '/xesam:artist/ {getline; print $2}')
-    echo "  ${artist} - ${title}"
+    echo "${artist} - ${title}"
     exit 0
   ;;
   *)
