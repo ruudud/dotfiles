@@ -9,6 +9,8 @@ feh --bg-fill ~/Pictures/bg.png
 xautolock -time 5 -locker 'i3lock -c 141414' &
 ~/dotfiles/bin/lights-on -o 'xautolock -enable' -f 'xautolock -disable' &
 
+[[ -f ~/dotfiles/bin/toggle-touchpad ]] && ~/dotfiles/bin/toggle-touchpad
+
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 [[ -f ~/.xinitrc-local ]] && source ~/.xinitrc-local
 

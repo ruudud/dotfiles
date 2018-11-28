@@ -2,7 +2,7 @@
 
 i3status-switch | while :
 do
-    read line
+    read -r line
     prefix=''
     if [[ "$line" == ","* ]]; then
         line="${line:1}"
