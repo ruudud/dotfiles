@@ -10,8 +10,12 @@ DBUS_PROP_GET="org.freedesktop.DBus.Properties.Get"
 DBUS_BASE_ACTION_CMD="dbus-send --print-reply=literal --dest=${SP_DEST}"
 
 do_spotify_action() {
-    ${DBUS_BASE_ACTION_CMD} ${SP_PATH} "${SP_MEMB}.$1"
-    exit $?
+  ${DBUS_BASE_ACTION_CMD} "${SP_PATH}" "${SP_MEMB}.$1"
+  exit $?
+}
+get_spotify_attr() {
+  ${DBUS_BASE_ACTION_CMD} "${SP_PATH}" "${DBUS_PROP_GET}" "string:${SP_MEMB}" "string:$1"
+  return $?
 }
 
 case "$1" in
@@ -30,8 +34,12 @@ case "$1" in
   "play")
     do_spotify_action "Play"
   ;;
-  "status")
-    meta=$(${DBUS_BASE_ACTION_CMD} ${SP_PATH} ${DBUS_PROP_GET} string:${SP_MEMB} string:'Metadata')
+  "state")
+    status=$(get_spotify_attr 'PlaybackStatus' | awk '{print $2}')
+    echo "$status"
+  ;;
+  "currently-playing")
+    meta=$(get_spotify_attr 'Metadata')
     title=$(echo "$meta" | awk -F' {2,}' '/xesam:title/ {print $4}')
     artist=$(echo "$meta" | awk -F' {2,}' '/xesam:artist/ {getline; print $2}')
     echo "${artist} - ${title}"
@@ -39,7 +47,7 @@ case "$1" in
   ;;
   *)
     echo "Usage: $0 [command]"
-    echo "  commands are: playpause, next, previous, stop, play, status"
+    echo "  commands are: playpause, next, previous, stop, play, currently-playing, state"
     exit 1
   ;;
 esac

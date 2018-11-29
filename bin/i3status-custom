@@ -9,9 +9,18 @@ do
         prefix=','
     fi
     if [[ "$line" == "[{"* ]]; then
-        PLAYING=" $(spotify-ctrl status)"
-        export PLAYING
-        out=$(echo "$line" | jq -c '. |= [{ name: "spotify", markup: "none", "color": "#1DB951", "full_text": env.PLAYING }] + .')
+        ARTIST_TITLE=" $(spotify-ctrl currently-playing)"
+
+        state="$(spotify-ctrl state)"
+        case "$state" in
+          "Playing") COLOR="#1DB951" ;;
+          *)         COLOR="#FFFFFF" ;;
+        esac
+
+        export COLOR
+        export ARTIST_TITLE
+
+        out=$(echo "$line" | jq -c '. |= [{ name: "spotify", markup: "none", "color": env.COLOR, "full_text": env.ARTIST_TITLE }] + .')
         echo "${prefix}${out}"
     else
         echo "${prefix}${line}" || exit 1
