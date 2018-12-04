@@ -1,6 +1,0 @@
-Run `install.sh` if you are lazy like me.
-
-To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
-/usr/share/X11/xkb/gb to
-
-key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
