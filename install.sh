@@ -5,13 +5,13 @@ basedir=$(readlink -m `dirname $0`)
 links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
-  i3 config/termite curlrc
+  i3 config/termite config/dunst curlrc
 )
 packages="curl wget the_silver_searcher bat vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
-  termite ttf-inconsolata\
+  dunst termite ttf-inconsolata\
   pass bash-completion tmux acpid\
   sox imagemagick python-pip python-virtualenvwrapper\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
