@@ -11,6 +11,8 @@ To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
 key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
 
 ## setup battery check
+In `~/.config/systemd/user/battery-check.service`:
+
 ```
 [Unit]
 Description=Battery Monitor
@@ -26,3 +28,5 @@ RestartSec=10
 [Install]
 WantedBy=default.target
 ```
+
+Then, `systemctl --user enable battery-check.service`
