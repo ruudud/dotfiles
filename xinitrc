@@ -2,6 +2,9 @@ export GTK_IM_MODULE="gtk-im-context-simple"
 export QT_IM_MODULE="simple"
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
+# Needed to get notify-send to work with dunst
+systemctl --user import-environment DISPLAY
+
 # Set desktop background
 feh --bg-fill ~/Pictures/bg.png
 
