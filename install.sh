@@ -6,6 +6,7 @@ links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
   i3 config/termite config/dunst curlrc
+  local/share/applications/mimeapps.list
 )
 packages="curl wget the_silver_searcher bat vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
@@ -23,6 +24,7 @@ echo ""
 if [[ "$symlink_answer" == "y" ]]; then
   rm -rf "${HOME}/.i3"
   mkdir -p "${HOME}/.config"
+  mkdir -p "${HOME}/.local/share/applications"
   for fl in "${links[@]}"; do
     ln -sfn $basedir/$fl ${HOME}/.$fl
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
