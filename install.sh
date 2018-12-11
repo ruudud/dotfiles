@@ -8,11 +8,12 @@ links=(
   i3 config/termite config/dunst curlrc
   local/share/applications/mimeapps.list
 )
-packages="curl wget the_silver_searcher bat vim git openssh rsync\
+packages="curl wget vim git openssh rsync\
+  the_silver_searcher ripgrep bat exa\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
-  dunst termite ttf-inconsolata\
+  dunst termite ttf-inconsolata ttf-font-awesome\
   pass bash-completion tmux acpi acpid\
   sox imagemagick python-pip python-virtualenvwrapper\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
