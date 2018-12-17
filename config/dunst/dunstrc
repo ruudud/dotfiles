@@ -2,6 +2,9 @@
     font = "Inconsolata 10"
     markup = yes
     format = "<b>%s</b>\n%b"
+    icon_path = /usr/share/icons/hicolor/32x32/apps:/usr/share/icons/hicolor/32x32/devices
+    icon_position = left
+    max_icon_size = 64
     sort = yes
     indicate_hidden = yes
     alignment = center
@@ -9,7 +12,7 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "200x5-6+30"
+    geometry = "350x5-6+30"
     transparency = 0
     idle_threshold = 120
     monitor = 0
@@ -24,9 +27,10 @@
     frame_width = 1
     frame_color = "#383838"
 
+[fullscreen_delay_everything]
+    fullscreen = pushback
 
 [shortcuts]
-
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).
@@ -62,3 +66,15 @@
     background = "#181818"
     foreground = "#CF6A4C"
     timeout = 0
+
+# Every section that isn't one of the above is interpreted as a rules
+# to override settings for certain messages.
+# Messages can be matched by "appname", "summary", "body", "icon", "category",
+# "msg_urgency" and you can override the "timeout", "urgency", "foreground",
+# "background", "frame_color", "new_icon" and "format", "fullscreen",
+# "stack_tag".
+# Shell-like globbing will get expanded.
+
+[spotify]
+    appname = Spotify
+    format = "  <b>%s</b>\n%b"

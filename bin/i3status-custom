@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+get-playing() {
+  spotify-ctrl currently-playing | tr -s '´' "'"
+}
+
 i3status-switch | while :
 do
     read -r line
@@ -9,7 +13,7 @@ do
         prefix=','
     fi
     if [[ "$line" == "[{"* ]]; then
-        ARTIST_TITLE=" $(spotify-ctrl currently-playing)"
+        ARTIST_TITLE=" $(get-playing)"
 
         state="$(spotify-ctrl state)"
         case "$state" in
