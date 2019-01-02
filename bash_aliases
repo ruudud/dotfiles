@@ -24,7 +24,7 @@ fiv() {
   x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"
   [[ $? -eq 0 ]] && vim "$x" || true
 }
-grv() {
+rgv() {
   x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"
   [[ $? -eq 0 ]] && vim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true
 }
