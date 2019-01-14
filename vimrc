@@ -1,7 +1,6 @@
 " Configuration file for vim
 "Kudos: Berge, xim, sjl
 
-
 filetype off
 " Add pathogen
 call pathogen#runtime_append_all_bundles()
@@ -9,10 +8,6 @@ call pathogen#helptags()
 " Enabled file type detection
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
-
-highlight clear
-" Add hilight before colorscheme
-au ColorScheme * highlight ExtraWhitespace ctermbg=red
 
 syntax enable
 set background=dark
@@ -59,7 +54,7 @@ set showcmd                     " Show (partial) command in status line.
 set showmatch                   " Show matching brackets.
 set showmode                    " Show mode we are in
 set visualbell                  " Blink, no sound
-set pastetoggle=<F3>            " Press F2 to enter paste mode
+set pastetoggle=<F3>            " Press F3 to enter paste mode
 set errorformat=%f:%l:\ %m      "
 set scrolloff=3                 " Keep more context when scrolling
 set title
