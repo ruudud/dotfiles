@@ -13,7 +13,6 @@ syntax enable
 set background=dark
 colorscheme solarized8
 
-
 " Now we set some defaults for the editor
 set termguicolors               " All the colors
 set completeopt=menu            " Don't display preview window in addition to popup
@@ -61,7 +60,6 @@ set title
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 syntax on                       " I like syntax hilight
-
 
 " Suffixes that get lower priority when doing tab completion
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -129,8 +127,6 @@ cmap w!! w !sudo tee %
 " Language specific settings
 " Remove trailing whitespace on save for py files
 au BufWritePre *.py :%s/\s\+$//e
-" No text wrap for urls.py
-au BufNewFile,BufRead urls.py      setlocal nowrap
 " Wrap in diff mode
 au FilterWritePre * if &diff | set wrap | endif
 
@@ -138,66 +134,16 @@ au FilterWritePre * if &diff | set wrap | endif
 au BufNewFile,BufRead *.ftl        setlocal filetype=html
 au BufNewFile,BufRead *.ts         setlocal filetype=javascript
 au BufNewFile,BufRead *.tsx        setlocal filetype=javascript
-au BufNewFile,BufRead *.coffee     setlocal filetype=coffee
-au BufNewFile,BufRead *.groovy     setlocal filetype=groovy
-au BufNewFile,BufRead *.md         setlocal filetype=markdown
 au BufNewFile,BufRead *.eyaml      setlocal filetype=yaml
-
-" Lint (based on filetype)
-nnoremap <leader>l :Lint<cr>
 
 " Replace next occurrences of word
 nnoremap <leader>s :%s/<c-r><c-w>/<c-r><c-w>/gcI<c-f>$F/hvb
-
-" Git blame through fugitive.vim
-nnoremap <leader>b :Gblame<cr>
 
 " Quickfix shortcuts
 nnoremap <leader>p :cprevious<cr>
 nnoremap <leader>n :cnext<cr>
 nnoremap <leader>o :copen<cr>
 nnoremap <leader>c :cclose<cr>
-
-" Functions
-
-" Jshint on javascript files
-function! s:JsLint(rcfile)
-  let l:lint = 'jshint'
-  if exists('a:rcfile')
-    cexpr system(l:lint . ' ' . expand('%') . ' ' . '--config' . ' ' . a:rcfile . ' ' . '\| head -n -2')
-  else
-    cexpr system(l:lint . ' ' . expand('%') . ' ' . '\| head -n -2')
-  endif
-endfunction
-
-au FileType javascript command! Lint :call s:JsLint(exists('s:jshintrc_path') ? s:jshintrc_path : b:git_dir . '/../.jshintrc')
-
-" Shellcheck on shell files
-function! s:ShLint()
-  let l:out = system('shellcheck -f gcc ' . expand('%:p') . ' ' . '| sed "s,[0-9]*\:\s, ,"')
-  cexpr l:out
-  cwindow
-endfunction
-
-au FileType sh command! Lint :call s:ShLint()
-
-" puppet-lint on puppet files
-function! s:PuppetLint()
-  let l:out = system('puppet-lint --log-format "%{KIND} [%{check}] %{message} at %{fullpath}: %{line}" ' . expand('%'))
-  cexpr l:out
-  cwindow
-endfunction
-
-au FileType puppet command! Lint :call s:PuppetLint()
-
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
-
 
 let s:hidden_all = 0
 function! ToggleHiddenAll()
@@ -222,14 +168,25 @@ endfunction
 
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = systemlist("npm bin")[0] . '/eslint' "'$(npm bin)/eslint'
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-nnoremap <leader>e :Errors<cr>
+" Plugin confs
+
+" ctrl P settings
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Git blame through fugitive.vim
+nnoremap <leader>b :Gblame<cr>
+
 
 " load per machine settings, missing file will be ignored.
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
+" Load Vim8 plugins in pack/
+packloadall
+
+" Load all helptags
+silent! helptags ALL
