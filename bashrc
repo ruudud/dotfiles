@@ -44,8 +44,6 @@ export IBUS_ENABLE_SYNC_MODE=1
 export GOPATH="$HOME/dev/go"
 export WORKON_HOME="$HOME/dev/python"
 
-[[ -f /etc/bash_completion ]] && . /etc/bash_completion
-
 [[ -f "$HOME/dotfiles/bash_aliases" ]] && . $HOME/dotfiles/bash_aliases
 
 [[ -f "$HOME/.bashrc-local" ]] && . "$HOME/.bashrc-local"

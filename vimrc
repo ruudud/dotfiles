@@ -10,10 +10,12 @@ filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 syntax enable
-set background=dark
-colorscheme solarized8
+
+let base16colorspace=256         " Access colors present in 256 colorspace
+colorscheme base16-ocean
 
 " Now we set some defaults for the editor
+set background=dark
 set termguicolors               " All the colors
 set completeopt=menu            " Don't display preview window in addition to popup
 set nobackup                    " Backup is for puppies
@@ -66,8 +68,12 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 " And some variables..
 let mapleader = ","
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Magic variables to get colors working in tmux
+if exists('$TMUX')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 
 " Automatically cd into the directory that the opened file is in
 au BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
