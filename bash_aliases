@@ -28,3 +28,20 @@ rgv() {
   x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i --cmd-query "$1" -c "rg -i --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"
   [[ $? -eq 0 ]] && vim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true
 }
+venv-create2() {
+  cdgit
+  virtualenv --python=python2 .env
+  source .env/bin/activate
+  cd -
+}
+venv-create() {
+  cdgit
+  virtualenv --python=python2 .env
+  source .env/bin/activate
+  cd -
+}
+venv-activate() {
+  cdgit
+  source .env/bin/activate
+  cd -
+}

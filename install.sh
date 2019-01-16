@@ -15,7 +15,7 @@ packages="curl wget vim git openssh rsync\
   alsa-utils pulseaudio pavucontrol pamixer\
   dunst termite ttf-inconsolata ttf-font-awesome\
   pass bash-completion tmux acpi acpid\
-  sox imagemagick python-pip python-virtualenvwrapper\
+  sox imagemagick python-pip\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
 pythonpackages="tmuxp"
@@ -31,8 +31,6 @@ if [[ "$symlink_answer" == "y" ]]; then
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
   done
 
-  # Create Virtualenvwrapper folder
-  mkdir -p "${HOME}/dev/python"
 fi
 
 read -n1 -p "Install ${packages[@]}? (y/n)" deps_answer
@@ -45,10 +43,11 @@ if [[ "$deps_answer" == "y" ]]; then
   pip install --user "${pythonpackages}"
 fi
 
-read -n1 -p "Install rbenv and nvm? (y/n)" other_answer
+read -n1 -p "Install rbenv, nvm, virtualenv? (y/n)" other_answer
 echo ""
 if [[ "$other_answer" == "y" ]]; then
   git clone https://github.com/creationix/nvm.git ~/.nvm
   git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  pip install --user virtualenv
 fi
