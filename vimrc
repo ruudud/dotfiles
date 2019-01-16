@@ -59,8 +59,8 @@ set pastetoggle=<F3>            " Press F3 to enter paste mode
 set errorformat=%f:%l:\ %m      "
 set scrolloff=3                 " Keep more context when scrolling
 set title
-set grepprg=ag\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep\ --no-heading\ $*\ \`git\ rev-parse\ --show-toplevel\`
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 syntax on                       " I like syntax hilight
 
 " Suffixes that get lower priority when doing tab completion
@@ -183,6 +183,9 @@ nnoremap <c-p> :SK<cr>
 " Git blame through fugitive.vim
 nnoremap <leader>b :Gblame<cr>
 
+" Use quickfix for linting results
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 " load per machine settings, missing file will be ignored.
 if filereadable(expand("~/.vimrc.local"))
