@@ -176,11 +176,9 @@ nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
 " Plugin confs
 
-" ctrl P settings
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|.sass_cache|.idea|.tmp|target)$'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" Fuzzy file search using skim/sk
+let $SKIM_DEFAULT_COMMAND = 'eval "rg --files $(git rev-parse --show-toplevel)"'
+nnoremap <c-p> :SK<cr>
 
 " Git blame through fugitive.vim
 nnoremap <leader>b :Gblame<cr>
