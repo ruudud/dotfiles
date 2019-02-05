@@ -1,13 +1,9 @@
 " Configuration file for vim
 "Kudos: Berge, xim, sjl
 
-filetype off
-" Add pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 " Enabled file type detection
+filetype off
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 
 syntax enable
 
@@ -15,6 +11,7 @@ let base16colorspace=256         " Access colors present in 256 colorspace
 colorscheme base16-ocean
 
 " Now we set some defaults for the editor
+set omnifunc=syntaxcomplete#Complete
 set background=dark
 set termguicolors               " All the colors
 set completeopt=menu            " Don't display preview window in addition to popup
