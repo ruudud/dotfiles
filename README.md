@@ -6,7 +6,7 @@ Run `install.sh` if you are lazy like me.
 ## remap keyboard
 
 To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
-/usr/share/X11/xkb/gb to
+/usr/share/X11/xkb/symbols/gb to
 
 key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
 
