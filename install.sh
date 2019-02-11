@@ -1,6 +1,6 @@
-#/bin/bash
+#!/usr/bin/env bash
 
-basedir=$(readlink -m `dirname $0`)
+basedir="$(readlink -m "$(dirname "$0")")"
 
 links=(
   fonts profile xinitrc Xresources bashrc XCompose
@@ -15,35 +15,32 @@ packages="curl wget vim git openssh rsync\
   alsa-utils pulseaudio pavucontrol pamixer\
   dunst termite ttf-inconsolata ttf-font-awesome\
   pass bash-completion tmux acpi acpid\
-  sox imagemagick python-pip\
+  sox imagemagick python-pip tmuxp\
   keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
-pythonpackages="tmuxp"
-
-read -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
+read -r -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
 if [[ "$symlink_answer" == "y" ]]; then
   rm -rf "${HOME}/.i3"
   mkdir -p "${HOME}/.config"
   mkdir -p "${HOME}/.local/share/applications"
   for fl in "${links[@]}"; do
-    ln -sfn $basedir/$fl ${HOME}/.$fl
+    ln -sfn "${basedir}/${fl}" "${HOME}/.${fl}"
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
   done
 
 fi
 
-read -n1 -p "Install ${packages[@]}? (y/n)" deps_answer
+read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
 echo ""
 if [[ "$deps_answer" == "y" ]]; then
   sudo pacman -Syu "${packages}"
 
   # Upgrade pip
   sudo pip install -U pip
-  pip install --user "${pythonpackages}"
 fi
 
-read -n1 -p "Install rbenv, nvm, virtualenv? (y/n)" other_answer
+read -r -n1 -p "Install rbenv, nvm, virtualenv? (y/n)" other_answer
 echo ""
 if [[ "$other_answer" == "y" ]]; then
   git clone https://github.com/creationix/nvm.git ~/.nvm
