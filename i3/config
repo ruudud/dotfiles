@@ -18,7 +18,8 @@ bindsym $mod+F4 exec spotify-ctrl playpause
 bindsym $mod+F5 exec spotify-ctrl previous
 bindsym $mod+F6 exec spotify-ctrl next
 
-bindsym $mod+Shift+a [title="VIM"] focus
+bindsym $mod+Shift+v [title="VIM"] focus
+bindsym $mod+Shift+s [title="Spotify"] focus
 
 bindsym Print exec screenshot
 bindsym $mod+Shift+D exec passmenu

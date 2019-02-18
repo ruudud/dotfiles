@@ -18,7 +18,7 @@ do
         state="$(spotify-ctrl state)"
         case "$state" in
           "Playing") COLOR="#1DB951" ;;
-          *)         COLOR="#FFFFFF" ;;
+          *)         COLOR="#a7adba" ;;
         esac
 
         export COLOR
