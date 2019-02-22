@@ -19,7 +19,7 @@ bindsym $mod+F5 exec spotify-ctrl previous
 bindsym $mod+F6 exec spotify-ctrl next
 
 bindsym $mod+Shift+v [title="VIM"] focus
-bindsym $mod+Shift+s [title="Spotify"] focus
+bindsym $mod+Shift+s [instance="spotify"] focus
 
 bindsym Print exec screenshot
 bindsym $mod+Shift+D exec passmenu
