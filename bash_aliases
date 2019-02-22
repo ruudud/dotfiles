@@ -36,7 +36,7 @@ venv-create2() {
 }
 venv-create() {
   cdgit
-  virtualenv --python=python2 .env
+  virtualenv --python=python3 .env
   source .env/bin/activate
   cd -
 }
