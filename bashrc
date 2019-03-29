@@ -30,7 +30,7 @@ export BROWSER='chromium'
 export EDITOR='vim'
 export TERMINAL='termite'
 export TERM='xterm-256color'
-[[ -n "$TMUX" ]] && export TERM='tmux-256color'
+[[ -n "$TMUX" ]] && export TERM='screen-256color'
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PS1="\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;31m\][\u@\h] \[\e[0;0m\]\w\n\[\e[0;33;49m\]✈ \[\e[0;0m\]"

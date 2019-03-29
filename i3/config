@@ -40,6 +40,7 @@ bindsym $mod+Shift+Q kill
 bindsym $mod+d exec dmenu_run
 
 bindsym $mod+Shift+u move workspace to output up
+bindsym $mod+Shift+y move workspace to output left
 
 # change focus
 bindsym $mod+h focus left
