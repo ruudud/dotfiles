@@ -4,6 +4,8 @@
 
 set $mod Mod4
 
+for_window [class="pinentry-gtk-2"][window_type=dialog] focus
+
 bindsym Mod1+Ctrl+l exec i3lock -c 141414
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
