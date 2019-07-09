@@ -42,7 +42,9 @@ bindsym $mod+Shift+Q kill
 bindsym $mod+d exec dmenu_run
 
 bindsym $mod+Shift+u move workspace to output up
+bindsym $mod+Shift+i move workspace to output down
 bindsym $mod+Shift+y move workspace to output left
+bindsym $mod+Shift+o move workspace to output right
 
 # change focus
 bindsym $mod+h focus left
@@ -94,7 +96,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindcode $mod+d focus child
+bindcode $mod+c focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
