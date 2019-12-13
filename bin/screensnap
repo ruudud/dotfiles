@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Select area of screen and copy to clipboard as png
 # Requires imagemagick
 import png:- | xclip -sel clip -t image/png

@@ -1,22 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Screenshots active window and saves to ~/Pictures/
+# Requires imagemagick
+
 DISPLAY=:0
 SCREENSHOTDIR=~/Pictures
-NOW=`date +%Y-%d-%m-%H:%M:%S`
+NOW=$(date +%Y-%d-%m-%H:%M:%S)
 FILENAME="${SCREENSHOTDIR}/screenshot-${NOW}.png"
 
 cleanup() {
     echo -e "\n*** Aborting ***"
-    rm $FILENAME
+    rm "$FILENAME"
     exit 0
 }
 
 # Run the cleanup function if the user press CTRL-C
 trap cleanup SIGINT
 
-ACTIVEWINDOW=`xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)" | awk '{print $5}'`
+ACTIVEWINDOW=$(xprop -root | grep "_NET_ACTIVE_WINDOW(WINDOW)" | awk '{print $5}')
 
 # Make the dump
-xwd -silent -id $ACTIVEWINDOW | xwdtopnm | pnmtopng > $FILENAME
+# This used to do | xwdtopnm | pnmtopng > $FILENAME
+# but apparently xwdtopnm suddenly didn't like xwd output
+xwd -silent -id "$ACTIVEWINDOW" | convert xwd:- "$FILENAME"
 
 # Create a symlink for easier lookup
-ln -sfn $FILENAME $SCREENSHOTDIR/latest_screenshot.png
+ln -sfn "$FILENAME" $SCREENSHOTDIR/latest_screenshot.png
