@@ -11,7 +11,7 @@ links=(
 packages="curl wget vim git openssh rsync\
   the_silver_searcher ripgrep bat exa\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
-  xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
+  xdotool xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
   dunst termite ttf-inconsolata ttf-font-awesome\
   pass bash-completion tmux acpi acpid\
