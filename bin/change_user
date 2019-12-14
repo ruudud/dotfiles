@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Switches desktop X session to given user
 #
-# Dependencies: xdotool
 # @param 1: The username to switch to
-#
+# Requires xdotool
 
 USERNAME=$1
 
