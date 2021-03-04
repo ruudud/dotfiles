@@ -41,11 +41,9 @@ if [[ "$deps_answer" == "y" ]]; then
   sudo pip install -U pip
 fi
 
-read -r -n1 -p "Install rbenv, nvm, virtualenv? (y/n)" other_answer
+read -r -n1 -p "Install nvm, virtualenv? (y/n)" other_answer
 echo ""
 if [[ "$other_answer" == "y" ]]; then
   git clone https://github.com/creationix/nvm.git ~/.nvm
-  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
   pip install --user virtualenv
 fi

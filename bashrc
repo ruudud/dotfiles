@@ -35,7 +35,6 @@ export TERM='xterm-256color'
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PS1="\[\e[0;33;49m\]\$(parse_git_branch)\[\e[0;31m\][\u@\h] \[\e[0;0m\]\w\n\[\e[0;33;49m\]✈ \[\e[0;0m\]"
 
-
 export SKIM_DEFAULT_COMMAND="rg --files || find ."
 
 # IntelliJ fix
@@ -43,6 +42,23 @@ export IBUS_ENABLE_SYNC_MODE=1
 
 export GOPATH="$HOME/dev/go"
 export WORKON_HOME="$HOME/dev/python"
+
+PATH="$HOME/dotfiles/bin:$HOME/dev/go/bin:/usr/local/go/bin:$HOME/.pyenv/bin:$PATH"
+
+if [[ -d "$HOME/.local/bin" ]]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+if [[ -d "$HOME/bin" ]]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+if [[ -d "$HOME/.pyenv" ]]; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+[[ -s "${HOME}/.nvm/nvm.sh" ]] && . "${HOME}/.nvm/nvm.sh"
+
 
 [[ -f "$HOME/dotfiles/bash_aliases" ]] && . $HOME/dotfiles/bash_aliases
 
