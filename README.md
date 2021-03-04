@@ -10,6 +10,19 @@ To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
 
 key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
 
+## remap caps lock to ctrl
+
+Add `/etc/X11/xorg.conf.d/00-keyboard.conf`
+```
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us"
+        Option "XkbOptions" "compose:ralt,ctrl:nocaps"
+EndSection
+```
+
+
 ## setup battery check
 In `~/.config/systemd/user/battery-check.service`:
 
