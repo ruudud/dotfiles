@@ -13,11 +13,14 @@ packages="curl wget vim git openssh rsync\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
   xdotool xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
-  dunst termite otf-libertinus ttf-inconsolata tex-gyre-fonts\
+  dunst termite ttf-inconsolata tex-gyre-fonts\
   noto-fonts-emoji\
   pass bash-completion tmux acpi acpid\
   sox imagemagick python-pip tmuxp\
-  keybase gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
+  gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
+
+aurpackages="otf-libertinus"
+
 
 read -r -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
@@ -39,6 +42,17 @@ if [[ "$deps_answer" == "y" ]]; then
 
   # Upgrade pip
   sudo pip install -U pip
+fi
+
+read -r -n1 -p "Install yay and aur packages ${aurpackages)? (y/n)" aur_answer
+echo ""
+if [[ "$aur_answer" == "y" ]]; then
+  mkdir -p "${HOME}/tmp" && cd $_
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+
+  yay -S $aurpackages
 fi
 
 read -r -n1 -p "Install nvm, virtualenv? (y/n)" other_answer
