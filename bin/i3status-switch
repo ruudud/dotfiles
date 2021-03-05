@@ -6,6 +6,9 @@ case $model in
   "ThinkPad X1"*)
     exec i3status -c "${HOME}/dotfiles/i3status.X1.conf"
     ;;
+  "ThinkPad T14"*)
+    exec i3status -c "${HOME}/dotfiles/i3status.T14.conf"
+    ;;
   *)
     exec i3status -c "${HOME}/dotfiles/i3status.x230.conf"
     ;;

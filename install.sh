@@ -8,15 +8,15 @@ links=(
   i3 config/termite config/dunst config/fontconfig curlrc
   local/share/applications/mimeapps.list
 )
-packages="curl wget vim git openssh rsync\
-  the_silver_searcher ripgrep bat exa\
+archbasepackages="dmenu i3-wm xorg-server xorg-xinit bash bash-completion\
+  curl wget vim git openssh rsync"
+packages="ripgrep skim bat exa\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
-  xdotool xclip xorg-xinit xorg-xev xorg-xbacklight xautolock\
+  xdotool xclip xorg-xev xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
-  dunst termite ttf-inconsolata tex-gyre-fonts\
-  noto-fonts-emoji\
-  pass bash-completion tmux acpi acpid\
-  sox imagemagick python-pip tmuxp\
+  dunst termite tmux tmuxp\
+  ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
+  pass acpi acpid imagemagick python-pip\
   gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
 aurpackages="otf-libertinus"
