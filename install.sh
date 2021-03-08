@@ -9,14 +9,14 @@ links=(
   local/share/applications/mimeapps.list
 )
 archbasepackages="dmenu i3-wm xorg-server xorg-xinit bash bash-completion\
-  curl wget vim git openssh rsync"
+  curl wget vim git openssh rsync acpi acpid xf86-video-intel"
 packages="ripgrep skim bat exa\
   shotwell pcmanfm xorg-xprop xorg-xwd netpbm\
-  xdotool xclip xorg-xev xorg-xbacklight xautolock\
+  xdotool xclip xorg-xev xorg-xrandr xorg-xbacklight xautolock\
   alsa-utils pulseaudio pavucontrol pamixer\
-  dunst termite tmux tmuxp\
+  feh dunst termite tmux tmuxp\
   ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
-  pass acpi acpid imagemagick python-pip\
+  pass imagemagick python-pip\
   gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite"
 
 aurpackages="otf-libertinus"

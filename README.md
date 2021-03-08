@@ -3,13 +3,6 @@
 ## install
 Run `install.sh` if you are lazy like me.
 
-## remap keyboard
-
-To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
-/usr/share/X11/xkb/symbols/gb to
-
-key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
-
 ## remap caps lock to ctrl
 
 Add `/etc/X11/xorg.conf.d/00-keyboard.conf`
@@ -43,3 +36,12 @@ WantedBy=default.target
 ```
 
 Then, `systemctl --user enable battery-check.service`
+
+
+## remap keyboard
+
+To re-map notsign ⌐ to asciitilde with the 'gb' xkb layout, modify
+/usr/share/X11/xkb/symbols/gb to
+
+key <TLDE>  { [     grave,    asciitilde,          bar,          bar ]      };
+
