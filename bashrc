@@ -43,7 +43,7 @@ export IBUS_ENABLE_SYNC_MODE=1
 export GOPATH="$HOME/dev/go"
 export WORKON_HOME="$HOME/dev/python"
 
-PATH="$HOME/dotfiles/bin:$HOME/dev/go/bin:/usr/local/go/bin:$HOME/.pyenv/bin:$PATH"
+PATH="$HOME/dotfiles/bin:$HOME/dev/go/bin:/usr/local/go/bin:$PATH"
 
 if [[ -d "$HOME/.local/bin" ]]; then
   PATH="$HOME/.local/bin:$PATH"
