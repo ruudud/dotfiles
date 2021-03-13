@@ -9,17 +9,16 @@ links=(
   local/share/applications/mimeapps.list
 )
 
-desktoppackages="dmenu i3-wm xorg-server xorg-xinit\
+packages="dmenu i3-wm xorg-server xorg-xinit\
   acpi acpid xf86-video-intel dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xev xorg-xrandr xorg-xbacklight xautolock\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
-  termite ttf-inconsolata tex-gyre-fonts noto-fonts-emoji"
-
-packages="ripgrep skim bat exa\
+  termite ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
+  ripgrep skim bat exa\
   bash bash-completion curl wget vim git rsync\
-  openssh tmux tmuxp"
+  openssh tmux tmuxp docker"
 
 aurpackages="otf-libertinus"
 
@@ -34,12 +33,6 @@ if [[ "$symlink_answer" == "y" ]]; then
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
   done
 
-fi
-
-read -r -n1 -p "Install ${desktoppackages}? (y/n)" deskdeps_answer
-echo ""
-if [[ "$deskdeps_answer" == "y" ]]; then
-  sudo pacman -Syu "$desktoppackages"
 fi
 
 read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
