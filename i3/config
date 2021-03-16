@@ -5,8 +5,8 @@
 set $mod Mod4
 
 bindsym Mod1+Ctrl+l exec i3lock -c 141414
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec light -A 10 # also handled by acpi events
+bindsym XF86MonBrightnessDown exec light -U 10 # also handled by acpi events
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pamixer -t

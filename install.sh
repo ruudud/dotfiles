@@ -10,9 +10,9 @@ links=(
 )
 
 packages="dmenu i3-wm xorg-server xorg-xinit\
-  acpi acpid xf86-video-intel dunst feh pcmanfm\
+  acpi acpid dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
-  xdotool xclip xorg-xev xorg-xrandr xorg-xbacklight xautolock\
+  xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
   termite ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
@@ -39,6 +39,10 @@ read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
 echo ""
 if [[ "$deps_answer" == "y" ]]; then
   sudo pacman -Syu "$packages"
+
+  sudo systemctl enable docker.service
+
+  sudo usermod -aG "$USER" docker audio video
 fi
 
 read -r -n1 -p "Install yay and aur packages ${aurpackages})? (y/n)" aur_answer
@@ -52,9 +56,9 @@ if [[ "$aur_answer" == "y" ]]; then
   yay -S "$aurpackages"
 fi
 
-read -r -n1 -p "Install nvm and pyenv? (y/n)" other_answer
+read -r -n1 -p "Install nvm and pyenv? (y/n)" progenvs_answer
 echo ""
-if [[ "$other_answer" == "y" ]]; then
+if [[ "$progenvs_answer" == "y" ]]; then
   git clone https://github.com/creationix/nvm.git ~/.nvm
 
   sudo pacman -Suy pyenv
@@ -63,9 +67,21 @@ if [[ "$other_answer" == "y" ]]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-read -r -n1 -p "Remap CapsLock to Ctrl, and setup battery monitor? (y/n)" desktop_other_answer
+read -r -n1 -p "Remap CapsLock to Ctrl, setup battery monitor and other ACPI events? (y/n)" desktop_answer
 echo ""
-if [[ "$desktop_other_answer" == "y" ]]; then
+if [[ "$desktop_answer" == "y" ]]; then
+
+  # NOTE: the following ACPI bindings are only necessary when the
+  # 'XF86MonBrightnessUp' keyboard event isn't triggered
+  sudo tee "/etc/acpi/events/brightnessdown" <<'EOF'
+event=video/brightnessdown.*
+action=/usr/bin/light -U 10
+EOF
+
+  sudo tee "/etc/acpi/events/brightnessup" <<'EOF'
+event=video/brightnessup.*
+action=/usr/bin/light -A 10
+EOF
 
   sudo tee "/etc/X11/xorg.conf.d/00-keyboard.conf" <<'EOF'
 Section "InputClass"
