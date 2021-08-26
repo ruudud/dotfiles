@@ -53,7 +53,9 @@ if [[ -d "$HOME/bin" ]]; then
 fi
 
 if [[ -d "$HOME/.pyenv" ]]; then
-  eval "$(pyenv init -)"
+  PYENV_ROOT="$HOME/.pyenv"
+  PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
