@@ -24,6 +24,8 @@ bindsym $mod+Shift+s [instance="spotify"] focus
 bindsym Print exec screenshot
 bindsym $mod+Shift+D exec passmenu
 
+bindsym ctrl+space exec dunstctl close
+
 # font for window titles. ISO 10646 = Unicode
 font pango:Inconsolata 10, FontAwesome 10
 
