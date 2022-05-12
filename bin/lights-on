@@ -18,7 +18,7 @@ EOT
 DEFAULT_INTERVAL="60"
 
 run_loop() {
-  local active_win active_win_id interval lights_on_cmd lights_off_cmd ret
+  local active_win active_win_id interval lights_on_cmd lights_off_cmd is_fullscreen is_vc
   local lights_off=0
 
   lights_on_cmd="$1"
@@ -27,9 +27,13 @@ run_loop() {
   while true; do
     active_win=$(xprop -root _NET_ACTIVE_WINDOW)
     active_win_id=${active_win:40:9}
+
     xprop -id "$active_win_id" | grep -q _NET_WM_STATE_FULLSCREEN
-    ret="$?"
-    if [[ "$ret" == 0 ]]; then
+    is_fullscreen="$?"
+    xprop -id "$active_win_id" | grep -q 'WM_NAME(UTF8_STRING) = "Meet '
+    is_vc="$?"
+
+    if [[ "$is_fullscreen" == 0 || "$is_vc" == 0 ]]; then
       if [[ "$lights_off" != 1 ]]; then
         lights_off=1
         eval "$lights_off_cmd"
