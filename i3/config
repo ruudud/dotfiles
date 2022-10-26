@@ -26,11 +26,13 @@ bindsym $mod+Shift+D exec passmenu
 
 bindsym ctrl+space exec dunstctl close
 
+
 # font for window titles. ISO 10646 = Unicode
 font pango:Inconsolata 10, FontAwesome 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -199,3 +201,5 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
+
+include ~/.i3config-local
