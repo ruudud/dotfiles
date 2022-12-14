@@ -28,7 +28,7 @@ parse_git_branch() {
 
 export BROWSER='google-chrome-stable'
 export EDITOR='vim'
-export TERMINAL='termite'
+export TERMINAL='alacritty'
 export TERM='xterm-256color'
 [[ -n "$TMUX" ]] && export TERM='screen-256color'
 

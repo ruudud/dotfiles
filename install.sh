@@ -5,7 +5,7 @@ basedir="$(readlink -m "$(dirname "$0")")"
 links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
-  i3 config/termite config/dunst config/fontconfig curlrc
+  i3 config/alacritty config/dunst config/fontconfig curlrc
   local/share/applications/mimeapps.list
 )
 
@@ -15,7 +15,7 @@ packages="dmenu i3-wm xorg-server xorg-xinit\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
-  termite ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
+  alacritty ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
   ripgrep skim bat exa\
   bash bash-completion curl wget vim git rsync jq\
   openssh tmux tmuxp docker"
