@@ -2,7 +2,7 @@
 # Screenshots active window and saves to ~/Pictures/
 # Requires imagemagick
 
-DISPLAY=:0
+#DISPLAY=:0
 SCREENSHOTDIR=~/Pictures
 NOW=$(date +%Y-%d-%m-%H:%M:%S)
 FILENAME="${SCREENSHOTDIR}/screenshot-${NOW}.png"
