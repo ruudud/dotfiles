@@ -17,7 +17,7 @@ packages="dmenu i3-wm xorg-server xorg-xinit\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
   termite ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
   ripgrep skim bat exa\
-  bash bash-completion curl wget vim git rsync\
+  bash bash-completion curl wget vim git rsync jq\
   openssh tmux tmuxp docker"
 
 aurpackages="otf-libertinus"
