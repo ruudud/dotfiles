@@ -3,31 +3,36 @@
 get-playing() {
   spotify-ctrl currently-playing | tr -s '´' "'"
 }
+get-spotify-json() {
+  ARTIST_TITLE=" $(get-playing)"
+
+  state="$(spotify-ctrl state)"
+  case "$state" in
+    "Playing") COLOR="#1DB951" ;;
+    *)         COLOR="#a7adba" ;;
+  esac
+
+  echo "{ name: \"spotify\", markup: \"none\", color: \"${COLOR}\", full_text: \"${ARTIST_TITLE}\" }"
+}
+get-backlight-json() {
+  state="  $(light | xargs printf '%.f')%"
+  echo "{ name: \"backlight\", markup: \"none\", color: \"#a7adba\", full_text: \"${state}\" }"
+}
 
 i3status-switch | while :
 do
-    read -r line
-    prefix=''
-    if [[ "$line" == ","* ]]; then
-        line="${line:1}"
-        prefix=','
-    fi
-    if [[ "$line" == "[{"* ]]; then
-        ARTIST_TITLE=" $(get-playing)"
-
-        state="$(spotify-ctrl state)"
-        case "$state" in
-          "Playing") COLOR="#1DB951" ;;
-          *)         COLOR="#a7adba" ;;
-        esac
-
-        export COLOR
-        export ARTIST_TITLE
-
-        out=$(echo "$line" | jq -c '. |= [{ name: "spotify", markup: "none", "color": env.COLOR, "full_text": env.ARTIST_TITLE }] + .')
-        echo "${prefix}${out}"
-    else
-        echo "${prefix}${line}" || exit 1
-    fi
+  read -r line
+  prefix=''
+  if [[ "$line" == ","* ]]; then
+    line="${line:1}"
+    prefix=','
+  fi
+  if [[ "$line" == "[{"* ]]; then
+    json="[$(get-spotify-json),$(get-backlight-json)]"
+    out=$(echo "$line" | jq -c ". |= ${json} + .")
+    echo "${prefix}${out}"
+  else
+    echo "${prefix}${line}" || exit 1
+  fi
 done
 

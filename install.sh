@@ -67,9 +67,11 @@ if [[ "$progenvs_answer" == "y" ]]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-read -r -n1 -p "Remap CapsLock to Ctrl, setup battery monitor and other ACPI events? (y/n)" desktop_answer
+read -r -n1 -p "Remap CapsLock to Ctrl, add current user to 'video' group to enable 'light' command, setup battery monitor and other ACPI events? (y/n)" desktop_answer
 echo ""
 if [[ "$desktop_answer" == "y" ]]; then
+
+  sudo gpasswd -a "$USER" video
 
   # NOTE: the following ACPI bindings are only necessary when the
   # 'XF86MonBrightnessUp' keyboard event isn't triggered
