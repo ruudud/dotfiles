@@ -17,6 +17,7 @@ bindsym $mod+F1 exec pamixer -t
 bindsym $mod+F4 exec spotify-ctrl playpause
 bindsym $mod+F5 exec spotify-ctrl previous
 bindsym $mod+F6 exec spotify-ctrl next
+bindsym $mod+period exec emoji-picker
 
 bindsym $mod+Shift+v [title="VIM"] focus
 bindsym $mod+Shift+s [instance="spotify"] focus

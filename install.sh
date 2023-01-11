@@ -20,7 +20,7 @@ packages="dmenu i3-wm xorg-server xorg-xinit\
   bash bash-completion curl wget vim git rsync jq\
   openssh tmux tmuxp docker"
 
-aurpackages="otf-libertinus"
+aurpackages="otf-libertinus x11-emoji-picker"
 
 read -r -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
