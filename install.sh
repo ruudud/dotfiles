@@ -6,7 +6,7 @@ links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
   i3 config/alacritty config/dunst config/fontconfig curlrc
-  local/share/applications/mimeapps.list
+  config/mimeapps.list
 )
 
 packages="dmenu i3-wm xorg-server xorg-xinit\
