@@ -2,6 +2,7 @@
 COLOR_GRAY="#a7adba"
 COLOR_GREEN="#1db951"
 COLOR_RED="#bf616a"
+COLOR_BLUE="#8fa1b3"
 
 get-playing() {
   spotify-ctrl currently-playing 2>/dev/null | tr -s '´' "'"
@@ -29,6 +30,9 @@ get-temp-json() {
   state="$(cat /tmp/.room-temp)"
   text=" ${state}"
   if (( $(echo "${state: :-2} < 18" | bc -l) )); then
+    color="$COLOR_BLUE"
+  fi
+  if (( $(echo "${state: :-2} > 22" | bc -l) )); then
     color="$COLOR_RED"
   fi
   echo "{ name: \"temp\", markup: \"none\", color: \"${color}\", full_text: \"${text}\" }"
