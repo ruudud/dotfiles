@@ -9,13 +9,15 @@ links=(
   config/mimeapps.list
 )
 
-packages="dmenu i3-wm xorg-server xorg-xinit\
+packages="dmenu i3-wm i3status i3lock xorg-server xorg-xinit\
+  make patch\
   acpi acpid dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
   alacritty ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
+  python-virtualenv python-pip\
   ripgrep skim bat exa\
   bash bash-completion curl wget vim git rsync jq\
   openssh tmux tmuxp docker"

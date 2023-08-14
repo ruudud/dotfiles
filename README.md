@@ -13,3 +13,15 @@ dependencies.
 
   * fonts: https://aswinmohan.me/posts/better-fonts-on-linux/
   * yubikey: https://github.com/drduh/YubiKey-Guide
+
+### Yubikey
+
+```
+gpg --import mykey.pub
+gpg --edit-key <KEYID>
+trust
+5
+y
+quit
+gpg --card-status
+```

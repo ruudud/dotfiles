@@ -33,3 +33,6 @@
 [help]
   # Automatically correct and execute mistyped commands
   autocorrect = 1
+[user]
+	email = ruudud@gmail.com
+	name = Pål Ruud
