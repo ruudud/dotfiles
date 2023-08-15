@@ -9,8 +9,8 @@ links=(
   config/mimeapps.list
 )
 
-packages="dmenu i3-wm i3status i3lock xorg-server xorg-xinit\
-  make patch\
+packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
+  make patch docker\
   acpi acpid dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
@@ -20,7 +20,7 @@ packages="dmenu i3-wm i3status i3lock xorg-server xorg-xinit\
   python-virtualenv python-pip\
   ripgrep skim bat exa\
   bash bash-completion curl wget vim git rsync jq\
-  openssh tmux tmuxp docker"
+  openssh tmux tmuxp"
 
 aurpackages="otf-libertinus x11-emoji-picker"
 
@@ -40,11 +40,11 @@ fi
 read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
 echo ""
 if [[ "$deps_answer" == "y" ]]; then
-  sudo pacman -Syu "$packages"
+  xargs sudo pacman -Suy <<<"$packages"
 
   sudo systemctl enable docker.service
 
-  sudo usermod -aG "$USER" docker audio video
+  sudo gpasswd -a "$USER" docker
 fi
 
 read -r -n1 -p "Install yay and aur packages ${aurpackages})? (y/n)" aur_answer
@@ -74,6 +74,7 @@ echo ""
 if [[ "$desktop_answer" == "y" ]]; then
 
   sudo gpasswd -a "$USER" video
+  sudo gpasswd -a "$USER" audio
 
   # NOTE: the following ACPI bindings are only necessary when the
   # 'XF86MonBrightnessUp' keyboard event isn't triggered
