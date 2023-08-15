@@ -35,6 +35,14 @@ if [[ "$symlink_answer" == "y" ]]; then
     echo -e "${HOME}/.$fl \t→\t $basedir/$fl"
   done
 
+  if [[ -f "${HOME}/.bash_profile" ]]; then
+    read -r -n1 -p "Found ~/.bash_profile. Delete it, since it hinders ~/.profile? (y/n)" bashprofile_answer
+    echo ""
+    if [[ "$bashprofile_answer" == "y" ]]; then
+      rm "${HOME}/.bash_profile"
+    fi
+  fi
+
 fi
 
 read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
