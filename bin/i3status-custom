@@ -40,11 +40,23 @@ get-temp-json() {
 get-co2-json() {
   local state color text
   state="$(cat /tmp/.room-co2)"
+  color="$COLOR_GRAY"
   text="  ${state}"
-  if (( $(echo "${state: :-3} > 800" | bc -l) )); then
+  if (( $(echo "${state} > 800" | bc -l) )); then
     color="$COLOR_RED"
   fi
   echo "{ name: \"co2\", markup: \"none\", color: \"${color}\", full_text: \"${text}\" }"
+}
+get-door-json() {
+  local state color text
+  state="$(cat /tmp/.room-door)"
+  text=""
+  color="$COLOR_GRAY"
+  if [[ "$state" == "l" ]]; then
+    text=""
+    color="$COLOR_RED"
+  fi
+  echo "{ name: \"door\", markup: \"none\", color: \"${color}\", full_text: \"${text}\" }"
 }
 
 i3status-switch | while :
@@ -56,7 +68,7 @@ do
     prefix=','
   fi
   if [[ "$line" == "[{"* ]]; then
-    json="[$(get-spotify-json),$(get-temp-json),$(get-co2-json),$(get-backlight-json)]"
+    json="[$(get-spotify-json),$(get-door-json),$(get-temp-json),$(get-co2-json),$(get-backlight-json)]"
     out=$(echo "$line" | jq -c ". |= ${json} + .")
     echo "${prefix}${out}"
   else

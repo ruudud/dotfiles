@@ -11,7 +11,7 @@ links=(
 
 packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
   make patch docker\
-  acpi acpid dunst feh pcmanfm\
+  acpi dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\

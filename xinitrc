@@ -9,10 +9,10 @@ systemctl --user import-environment DISPLAY
 feh --bg-fill ~/Pictures/bg.png
 
 # lock screen after inactivity, but disable on fullscreen
-xautolock -time 5 -locker 'i3lock -c 141414' &
+xautolock -time 5 -locker 'i3lock -e -c 141414 -i ~/Pictures/bg.png' &
 ~/dotfiles/bin/lights-on -o 'xautolock -enable' -f 'xautolock -disable' &
 
-xss-lock -- i3lock -c 141414 &
+xss-lock -l -- i3lock -e -c 141414 -i ~/Pictures/bg.png &
 
 [[ -f ~/dotfiles/bin/toggle-touchpad ]] && ~/dotfiles/bin/toggle-touchpad
 

@@ -138,6 +138,7 @@ au BufNewFile,BufRead *.ftl        setlocal filetype=html
 au BufNewFile,BufRead *.ts         setlocal filetype=javascript
 au BufNewFile,BufRead *.tsx        setlocal filetype=javascript
 au BufNewFile,BufRead *.eyaml      setlocal filetype=yaml
+au BufNewFile,BufRead *.svelte     setlocal filetype=html
 
 " Replace next occurrences of word
 nnoremap <leader>s :%s/<c-r><c-w>/<c-r><c-w>/gcI<c-f>$F/hvb
