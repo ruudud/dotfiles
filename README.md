@@ -14,6 +14,12 @@ dependencies.
   * fonts: https://aswinmohan.me/posts/better-fonts-on-linux/
   * yubikey: https://github.com/drduh/YubiKey-Guide
 
+### /etc/systemd/
+
+  * `logind.conf`: `HandleLidSwitch=suspend-then-hibernate`
+  * `sleep.conf`: `HibernateDelaySec=600`
+
+
 ### Yubikey
 
 ```
