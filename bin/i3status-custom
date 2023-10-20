@@ -51,7 +51,7 @@ get-door-json() {
   local state color text
   state="$(cat /tmp/.room-door)"
   text=""
-  color="$COLOR_GRAY"
+  color="$COLOR_GREEN"
   if [[ "$state" == "l" ]]; then
     text=""
     color="$COLOR_RED"
