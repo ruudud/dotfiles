@@ -6,12 +6,12 @@ links=(
   fonts profile xinitrc Xresources bashrc XCompose
   vim vimrc screenrc tmux.conf gitconfig
   i3 config/alacritty config/dunst config/fontconfig curlrc
-  config/mimeapps.list
+  config/mimeapps.list config/camset
 )
 
 packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
   make patch docker\
-  acpi dunst feh pcmanfm\
+  acpi dunst feh pcmanfm camset\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
