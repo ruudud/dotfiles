@@ -11,7 +11,7 @@ links=(
 
 packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
   make patch docker\
-  acpi dunst feh pcmanfm camset\
+  acpi dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
   xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
@@ -22,7 +22,7 @@ packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
   bash bash-completion curl wget vim git rsync jq\
   openssh tmux tmuxp"
 
-aurpackages="otf-libertinus x11-emoji-picker"
+aurpackages="otf-libertinus x11-emoji-picker camset"
 
 read -r -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
