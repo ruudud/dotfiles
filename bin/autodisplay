@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Add the following to /etc/udev/rules.d/99-displayauto.rules
+#   SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/ruud/dotfiles/bin/autodisplay"
+# and then `sudo udevadm control --reload`
+# Also requires a function `xrandr-toggle` to be defined in ~/.bashrc-local
+
+
+if [[ $EUID -ne 0 ]] ; then
+  echo "This script must be run as root"
+  exit 1
+fi
+
+USER="ruud"
+export DISPLAY=":0.0"
+export XAUTHORITY="/home/$USER/.Xauthority"
+
+sleep 1
+
+echo "$(date -Iseconds) Running autodisplay" >> /tmp/xrandr-auto-log
+
+su - "$USER" --whitelist-environment="DISPLAY,XAUTHORITY" -c xrandr-toggle

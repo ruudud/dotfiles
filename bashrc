@@ -15,9 +15,9 @@ export dotfiles="$HOME/dotfiles"
 # For interactive shells only
 if [[ -t 1 ]]; then
   # Perform file completion in a case insensitive fashion
-  bind "set completion-ignore-case on"
+  bind "set completion-ignore-case on" 2>/dev/null
   # Display matches for ambiguous patterns at first tab press
-  bind "set show-all-if-ambiguous on"
+  bind "set show-all-if-ambiguous on" 2>/dev/null
   # No need to disable flow
   stty -ixon
 fi
