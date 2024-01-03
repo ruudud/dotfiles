@@ -6,7 +6,7 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 systemctl --user import-environment DISPLAY
 
 # Set desktop background
-feh --bg-max ~/Pictures/bg.png
+feh --bg-fill ~/Pictures/bg.png
 
 # lock screen after inactivity, but disable on fullscreen
 xautolock -time 5 -locker 'i3lock -e -c 141414 -i ~/Pictures/lock.png' &

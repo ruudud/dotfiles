@@ -48,7 +48,7 @@ fi
 read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
 echo ""
 if [[ "$deps_answer" == "y" ]]; then
-  xargs sudo pacman -Suy <<<"$packages"
+  xargs -a <(echo "$packages") sudo pacman -Suy
 
   sudo systemctl enable docker.service
 
