@@ -1,0 +1,55 @@
+[[colors.indexed_colors]]
+color = "0xd08770"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xab7967"
+index = 17
+
+[[colors.indexed_colors]]
+color = "0x343d46"
+index = 18
+
+[[colors.indexed_colors]]
+color = "0x4f5b66"
+index = 19
+
+[[colors.indexed_colors]]
+color = "0xa7adba"
+index = 20
+
+[[colors.indexed_colors]]
+color = "0xdfe1e8"
+index = 21
+
+[colors.bright]
+black = "0x65737e"
+blue = "0x8fa1b3"
+cyan = "0x96b5b4"
+green = "0xa3be8c"
+magenta = "0xb48ead"
+red = "0xbf616a"
+white = "0xeff1f5"
+yellow = "0xebcb8b"
+
+[colors.cursor]
+cursor = "0xc0c5ce"
+text = "0x2b303b"
+
+[colors.normal]
+black = "0x2b303b"
+blue = "0x8fa1b3"
+cyan = "0x96b5b4"
+green = "0xa3be8c"
+magenta = "0xb48ead"
+red = "0xbf616a"
+white = "0xc0c5ce"
+yellow = "0xebcb8b"
+
+[colors.primary]
+background = "0x2b303b"
+foreground = "0xc0c5ce"
+
+[font]
+size = 10.0
+normal = { family = "Inconsolata", style = "Regular" }
