@@ -11,11 +11,12 @@ if [[ $EUID -ne 0 ]] ; then
 fi
 
 USER="ruud"
-export DISPLAY=":0.0"
+export DISPLAY=":1"
 export XAUTHORITY="/home/$USER/.Xauthority"
 
 sleep 1
 
-echo "$(date -Iseconds) Running autodisplay" >> /tmp/xrandr-auto-log
+logger -t xrandrhotplug "$(date -Iseconds) Running autodisplay"
 
 su - "$USER" --whitelist-environment="DISPLAY,XAUTHORITY" -c xrandr-toggle
+logger -t xrandrhotplug "$(date -Iseconds) Completed autodisplay: $?"
