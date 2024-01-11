@@ -10,19 +10,19 @@ links=(
 )
 
 packages="dmenu i3-wm i3lock i3status xorg-server xorg-xinit\
-  make patch docker\
+  man-db make patch\
   acpi dunst feh pcmanfm\
   alsa-utils pulseaudio pavucontrol pamixer\
-  xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock light\
+  xdotool xclip xorg-xset xorg-xinput xorg-xev xorg-xrandr xautolock xss-lock\
   pass gnupg ccid yubico-pam pcsc-tools libusb-compat pcsclite\
   imagemagick shotwell xorg-xprop xorg-xwd netpbm\
   alacritty ttf-inconsolata tex-gyre-fonts noto-fonts-emoji\
   python-virtualenv python-pip\
-  ripgrep skim bat exa\
+  ripgrep skim bat exa otf-libertinus\
   bash bash-completion curl wget vim git rsync jq\
-  openssh tmux tmuxp"
+  openssh tmux tmuxp htop"
 
-aurpackages="otf-libertinus x11-emoji-picker camset"
+aurpackages="x11-emoji-picker camset light"
 
 read -r -n1 -p "Symlink config files to $HOME (overwriting)? (y/n)" symlink_answer
 echo ""
@@ -49,10 +49,6 @@ read -r -n1 -p "Install ${packages}? (y/n)" deps_answer
 echo ""
 if [[ "$deps_answer" == "y" ]]; then
   xargs -a <(echo "$packages") sudo pacman -Suy
-
-  sudo systemctl enable docker.service
-
-  sudo gpasswd -a "$USER" docker
 fi
 
 read -r -n1 -p "Install yay and aur packages ${aurpackages})? (y/n)" aur_answer
@@ -63,7 +59,7 @@ if [[ "$aur_answer" == "y" ]]; then
   cd yay
   makepkg -si
 
-  yay -S "$aurpackages"
+  yay -Suy "$aurpackages"
 fi
 
 read -r -n1 -p "Install nvm and pyenv? (y/n)" progenvs_answer
