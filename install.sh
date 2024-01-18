@@ -82,6 +82,7 @@ if [[ "$desktop_answer" == "y" ]]; then
 
   # NOTE: the following ACPI bindings are only necessary when the
   # 'XF86MonBrightnessUp' keyboard event isn't triggered
+  sudo mkdir -p /etc/acpi/events
   sudo tee "/etc/acpi/events/brightnessdown" <<'EOF'
 event=video/brightnessdown.*
 action=/usr/bin/light -U 10
@@ -99,6 +100,10 @@ Section "InputClass"
         Option "XkbLayout" "us"
         Option "XkbOptions" "compose:ralt,ctrl:nocaps"
 EndSection
+EOF
+
+  sudo tee "/etc/udev/rules.d/backlight.rules" <<'EOF'
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
 EOF
 
 
