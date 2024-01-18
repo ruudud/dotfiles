@@ -11,7 +11,7 @@ dependencies.
 
 ## Other things
 
-  * fonts: https://aswinmohan.me/posts/better-fonts-on-linux/
+  * fonts: https://aswinmohan.me//better-fonts-on-linux/
   * yubikey: https://github.com/drduh/YubiKey-Guide
 
 ### /etc/systemd/
