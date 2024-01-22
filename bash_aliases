@@ -45,3 +45,25 @@ venv-activate() {
   source .env/bin/activate
   cd -
 }
+
+xrandr-single() {
+  for disp in $(xrandr | awk '/connected/ {print $1}' | grep -v eDP); do
+    xrandr --output "$disp" --off
+  done
+  xrandr --auto --output eDP
+}
+xrandr-double() {
+  # Maybe better to grep -v eDP
+  extconnected=$(xrandr | awk '/ connected/ {print $1}' | tail -n1)
+  xrandr --output "$extconnected" --above eDP --auto
+  feh --bg-fill ~/Pictures/bg.png
+}
+
+xrandr-toggle() {
+  amountconnected=$(xrandr | grep ' connected' | wc -l)
+  if (( $amountconnected == 2 )); then
+    xrandr-double
+  else
+    xrandr-single
+  fi
+}

@@ -5,7 +5,7 @@ COLOR_RED="#bf616a"
 COLOR_BLUE="#8fa1b3"
 
 get-playing() {
-  spotify-ctrl currently-playing 2>/dev/null | tr -s '´' "'"
+  spotify-ctrl currently-playing 2>/dev/null | tr -s '´' "'" | tr -s '"' "'"
 }
 get-spotify-json() {
   local state color
