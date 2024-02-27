@@ -11,6 +11,7 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pamixer -t
 bindsym XF86Messenger exec toggle-touchpad
+bindsym XF86Go exec xrandr-toggle
 bindsym $mod+F3 exec pamixer -i 5
 bindsym $mod+F2 exec pamixer -d 5
 bindsym $mod+F1 exec pamixer -t

@@ -51,6 +51,7 @@ xrandr-single() {
     xrandr --output "$disp" --off
   done
   xrandr --auto --output eDP
+  feh --bg-fill ~/Pictures/bg.png
 }
 xrandr-double() {
   # Maybe better to grep -v eDP

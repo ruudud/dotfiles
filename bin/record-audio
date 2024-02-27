@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 base_fname="${HOME}/audio-out_$(date +%Y%m%d_%H%M%S)"
-spkr_audio_device="alsa_output.pci-0000_00_1b.0.analog-stereo.monitor"
-mic_audio_device="alsa_input.pci-0000_00_1b.0.analog-stereo"
+spkr_audio_device="$(pactl list sources short | awk '/IDLE/ {print $2}')"
+mic_audio_device="$(pactl list sources short | awk '/RUNNING/ {print $2}')"
 spkr_fl="${base_fname}-spkr.wav" 
 mic_fl="${base_fname}-mic.wav" 
 result_fl="${base_fname}.ogg" 
