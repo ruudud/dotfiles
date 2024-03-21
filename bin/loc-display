@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+xrandr-single() {
+  for disp in $(xrandr | awk '/connected/ {print $1}' | grep -v eDP); do
+    xrandr --output "$disp" --off
+  done
+  xrandr --auto --output eDP
+  feh --bg-fill ~/Pictures/bg.png
+}
+xrandr-double() {
+  # Maybe better to grep -v eDP
+  extconnected=$(xrandr | awk '/ connected/ {print $1}' | tail -n1)
+  xrandr --output "$extconnected" --above eDP --auto
+  feh --bg-fill ~/Pictures/bg.png
+}
+
+xrandr-toggle() {
+  amountconnected=$(xrandr | grep ' connected' | wc -l)
+  if (( $amountconnected == 2 )); then
+    xrandr-double
+  else
+    xrandr-single
+  fi
+}
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -s|--single)
+      xrandr-single
+      exit 0
+      ;;
+    -d|--double)
+      xrandr-double
+      exit 0
+      ;;
+    -t|--toggle)
+      xrandr-toggle
+      exit 0
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      xrandr-toggle
+      ;;
+  esac
+done
+

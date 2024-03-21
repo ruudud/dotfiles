@@ -59,7 +59,7 @@ if [[ "$aur_answer" == "y" ]]; then
   cd yay
   makepkg -si
 
-  yay -Suy "$aurpackages"
+  xargs -a <(echo "$aurpackages") yay -Suy
 fi
 
 read -r -n1 -p "Install nvm and pyenv? (y/n)" progenvs_answer
@@ -104,6 +104,11 @@ EOF
 
   sudo tee "/etc/udev/rules.d/backlight.rules" <<'EOF'
 ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+EOF
+
+  sudo tee "/etc/modprobe.d/nobeep.conf" <<'EOF'
+blacklist pcspkr
+blacklist snd_pcsp
 EOF
 
 
